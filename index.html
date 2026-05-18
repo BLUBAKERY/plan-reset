@@ -86,6 +86,23 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 .rec-box ul,.rec-box ol{padding-left:15px;}
 .rec-box li{font-size:13px;color:var(--mid);line-height:1.8;font-weight:300;}
 .rec-portion{margin-top:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:#F0F5EB;padding:4px 9px;display:inline-block;}
+/* FEEL */
+.feel-section{margin-top:12px;padding-top:12px;border-top:1px dashed var(--sand);}
+.feel-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;}
+.feel-chip{font-size:11px !important;}
+/* VICTORIES */
+.vic-section{background:var(--deep);border-radius:4px;padding:22px;margin-top:20px;}
+.vic-title{font-size:22px;font-weight:300;color:var(--warm);margin-bottom:4px;}
+.vic-title em{font-style:italic;color:var(--gold);}
+.vic-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:14px;}
+.vic-grid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.vic-chip{font-size:12px;padding:6px 13px !important;border-color:rgba(255,255,255,.15) !important;color:var(--sand) !important;background:rgba(255,255,255,.05) !important;line-height:1.3;}
+.vic-chip.sel{background:var(--gold) !important;border-color:var(--gold) !important;color:var(--deep) !important;}
+.vic-custom{font-family:'Cormorant Garamond',serif;font-size:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:9px 12px;border-radius:3px;width:100%;color:var(--warm);resize:none;margin-top:4px;}
+.vic-custom:focus{outline:none;border-color:var(--gold);}
+.vic-custom::placeholder{color:rgba(255,255,255,.3);}
+.vic-custom-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px;}
+.vic-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-top:10px;letter-spacing:.05em;}
 /* NOTE */
 .note-area{font-family:'Cormorant Garamond',serif;font-size:14px;border:1px solid var(--sand);background:var(--warm);padding:10px;border-radius:3px;width:100%;resize:vertical;min-height:65px;color:var(--deep);}
 /* CHAT */
@@ -303,9 +320,19 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
   </div>
 
   <div id="hoy-meals"></div>
+  <div id="vic-section" class="vic-section">
+    <div class="vic-sub">Victorias del día</div>
+    <div class="vic-title">¿Qué celebrás <em>hoy</em>?</div>
+    <div style="font-size:13px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.6;">No tiene que ser perfecto. Tiene que ser tuyo.</div>
+    <div class="vic-grid" id="vic-chips"></div>
+    <div class="vic-custom-lbl">O escribí la tuya</div>
+    <textarea class="vic-custom" id="vicCustom" rows="2" placeholder="Ej: me hablé con amor cuando sentí que me equivoqué..." oninput="saveVicCustom()"></textarea>
+    <div class="vic-count" id="vic-count"></div>
+  </div>
+
   <div style="margin-top:18px;">
     <div class="sh-tag" style="margin-bottom:5px;">Notas del día</div>
-    <textarea class="note-area" id="dayNotes" placeholder="Cómo te sentiste, energía, ansiedad, humor..." oninput="saveNotes()"></textarea>
+    <textarea class="note-area" id="dayNotes" placeholder="Cómo te sentiste en general, qué notaste, qué querés recordar..." oninput="saveNotes()"></textarea>
   </div>
 </div>
 
@@ -548,7 +575,7 @@ function renderHoy(){
   document.getElementById('stepsInp').value=d.steps||'';
   document.getElementById('steps-disp').textContent=(d.steps||0).toLocaleString('es-AR');
   updSteps(d.steps||0);
-  renderMeals();updMacros();
+  renderMeals();updMacros();renderVictories();
 }
 function updSteps(s){
   document.getElementById('steps-bar').style.width=Math.min(100,s/15000*100)+'%';
@@ -573,7 +600,7 @@ function renderMeals(){
     const div=document.createElement('div');
     div.className='mlc';div.id='hc-'+m.id;
     div.innerHTML=`<div class="mlc-hdr ${m.color}" onclick="toggleH('${m.id}')">
-      <div><div class="mlc-time">${m.time}</div><div class="mlc-name">${m.name}</div>${log?`<div class="mlc-done">✓ ${log.t==='c'?log.txt:m.options[log.i]?.name||'registrado'}</div>`:''}</div>
+      <div><div class="mlc-time">${m.time}</div><div class="mlc-name">${m.name}</div>${log?`<div class="mlc-done">✓ ${log.t==='c'?log.txt:m.options[log.i]?.name||'registrado'}${log.feel?' · '+log.feel:''}</div>`:''}</div>
       <div class="mlc-right"><span class="chk">${log?'✅':'○'}</span><span class="chevron">⌄</span></div>
     </div>
     <div class="mlc-body">
@@ -583,6 +610,12 @@ function renderMeals(){
       <textarea class="c-inp" id="ci-${m.id}" rows="2" placeholder="Ej: pan de masa madre + palta + 2 huevos revueltos con espinaca">${cv}</textarea>
       <button class="c-save" onclick="logC('${m.id}')">Guardar lo que comí</button>
       ${log&&log.t==='p'?mpills(m.options[log.i]):''}
+      ${log?`<div class="feel-section">
+        <div class="feel-lbl">¿Cómo quedaste?</div>
+        <div class="chips-row feel-chips">
+          ${['🌿 Bien','😌 Llena y tranquila','🙂 Con un poco más de hambre','😐 Con hambre','😤 Con ansiedad','🫧 Inflamada','💫 Con energía','😴 Con sueño','🥲 Con culpa','✨ Presente y consciente'].map(f=>`<span class="chip feel-chip${log.feel===f?' sel':''}" onclick="logFeel('${m.id}','${f}')">${f}</span>`).join('')}
+        </div>
+      </div>`:''}
     </div>`;
     c.appendChild(div);
   });
@@ -593,6 +626,12 @@ function logP(mid,idx){
   const d=gd(curDay);
   if(d.meals[mid]&&d.meals[mid].t==='p'&&d.meals[mid].i===idx)delete d.meals[mid];
   else d.meals[mid]={t:'p',i:idx,ts:Date.now()};
+  save();renderMeals();updMacros();
+}
+function logFeel(mid,feel){
+  const d=gd(curDay);
+  if(!d.meals[mid])return;
+  d.meals[mid].feel=d.meals[mid].feel===feel?null:feel;
   save();renderMeals();updMacros();
 }
 function logC(mid){
@@ -642,6 +681,66 @@ function updMacros(){
     const el=document.getElementById('mg-'+id);el.textContent=g.txt;el.className='macro-guide '+g.cls;
   };
   set('p',p,T.p,'g',gp);set('c',c,T.c,'g',gc);set('f',f,T.f,'g',gf);set('k',k,T.k,' kcal',gk);
+}
+const VICTORIES=[
+  '🚶‍♀️ Salí a caminar aunque no tenía ganas',
+  '💪 Completé el entrenamiento',
+  '🧘 Estiré o hice movilidad',
+  '⏸ Paré cuando estaba llena',
+  '🌿 Tomé una buena decisión antes de comer azúcar',
+  '👁 Presté atención a las sensaciones de mi cuerpo',
+  '🍫 Elegí algo dentro de mi antojo respetando mi cuerpo',
+  '✨ Lo elegí con intención y presencia — no automático',
+  '💬 Me hablé con amor',
+  '😴 Me di un descanso sin culpa',
+  '🥗 Preparé mi comida con cuidado',
+  '💧 Tomé suficiente agua',
+  '🌙 Armé el ritual nocturno',
+  '📱 Cerré el teléfono antes de comer',
+  '🎯 Fui al chat antes de decidir',
+  '🧠 Noté el antojo sin actuar automáticamente',
+  '🫀 Escuché a mi cuerpo hoy',
+  '🌸 Fui amable conmigo aunque no salió perfecto',
+];
+
+function renderVictories(){
+  const d=gd(curDay);
+  const sel=d.victories||[];
+  const grid=document.getElementById('vic-chips');
+  grid.innerHTML='';
+  VICTORIES.forEach(v=>{
+    const s=sel.includes(v);
+    const chip=document.createElement('span');
+    chip.className='chip vic-chip'+(s?' sel':'');
+    chip.textContent=v;
+    chip.onclick=()=>toggleVictory(v);
+    grid.appendChild(chip);
+  });
+  document.getElementById('vicCustom').value=d.vicCustom||'';
+  const total=sel.length+(d.vicCustom&&d.vicCustom.trim()?1:0);
+  const cEl=document.getElementById('vic-count');
+  if(total===0)cEl.textContent='';
+  else if(total===1)cEl.textContent='✦ 1 victoria celebrada hoy';
+  else cEl.textContent=`✦ ${total} victorias celebradas hoy — eso es todo`;
+}
+function toggleVictory(v){
+  const d=gd(curDay);
+  if(!d.victories)d.victories=[];
+  const idx=d.victories.indexOf(v);
+  if(idx>-1)d.victories.splice(idx,1);
+  else d.victories.push(v);
+  save();renderVictories();
+}
+function saveVicCustom(){
+  const d=gd(curDay);
+  d.vicCustom=document.getElementById('vicCustom').value;
+  save();
+  const sel=d.victories||[];
+  const total=sel.length+(d.vicCustom&&d.vicCustom.trim()?1:0);
+  const cEl=document.getElementById('vic-count');
+  if(total===0)cEl.textContent='';
+  else if(total===1)cEl.textContent='✦ 1 victoria celebrada hoy';
+  else cEl.textContent=`✦ ${total} victorias celebradas hoy — eso es todo`;
 }
 function saveNotes(){const d=gd(curDay);d.notes=document.getElementById('dayNotes').value;save();}
 
@@ -734,8 +833,30 @@ function renderDatos(){
   const wg=document.getElementById('w-grid');wg.innerHTML='';const dns=['D','L','M','M','J','V','S'];
   for(let i=1;i<=28;i++){const d=appData[dk(i)];const mc=d?Object.keys(d.meals||{}).length:0;const dc=document.createElement('div');dc.className='dc'+(i===curDay?' today':'')+(mc>0?' hasd':'');dc.onclick=()=>{curDay=i;document.getElementById('daySelect').value=i;showPage('hoy');renderHoy();};dc.innerHTML=`<div class="dc-n">${i}</div><div class="dc-day">${dns[(i-1)%7]}</div><div class="dc-s">${mc>0?mc+'/5':''}${d&&d.steps>=10000?' 👣':''}</div>`;wg.appendChild(dc);}
   const ns=document.getElementById('notes-sum');ns.innerHTML='';let any=false;
-  for(let i=1;i<=28;i++){const d=appData[dk(i)];if(d&&d.notes&&d.notes.trim()){any=true;const div=document.createElement('div');div.style.cssText='background:var(--warm);border:1px solid var(--sand);padding:9px 13px;border-radius:3px;margin-bottom:5px;';div.innerHTML=`<div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--mid);margin-bottom:2px;">DÍA ${i}${d.steps?' · '+d.steps.toLocaleString('es-AR')+' pasos':''}</div><div style="font-size:13px;font-weight:300;">${d.notes}</div>`;ns.appendChild(div);}}
-  if(!any)ns.innerHTML='<div style="font-size:13px;color:var(--mid);font-style:italic;">Las notas de "Hoy" aparecerán acá.</div>';
+  for(let i=1;i<=28;i++){
+    const d=appData[dk(i)];
+    const vics=(d&&d.victories)||[];
+    const vicC=d&&d.vicCustom&&d.vicCustom.trim()?d.vicCustom:'';
+    const hasNote=d&&d.notes&&d.notes.trim();
+    const hasFeels=d&&Object.values(d.meals||{}).some(m=>m.feel);
+    if(hasNote||vics.length||vicC||hasFeels){
+      any=true;
+      const div=document.createElement('div');
+      div.style.cssText='background:var(--warm);border:1px solid var(--sand);padding:11px 15px;border-radius:3px;margin-bottom:7px;';
+      let inner=`<div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--mid);margin-bottom:6px;">DÍA ${i}${d&&d.steps?' · '+d.steps.toLocaleString('es-AR')+' pasos':''}</div>`;
+      if(hasFeels){
+        const feels=Object.entries(d.meals).filter(([,m])=>m.feel).map(([id,m])=>{const meal=MEALS.find(x=>x.id===id);return`<span style="font-size:11px;color:var(--mid);">${meal?meal.name:id}: ${m.feel}</span>`;});
+        inner+=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${feels.join('')}</div>`;
+      }
+      if(vics.length||vicC){
+        const allV=[...vics,...(vicC?[vicC]:[])];
+        inner+=`<div style="margin-bottom:5px;">${allV.map(v=>`<span style="font-family:'DM Mono',monospace;font-size:9px;background:#FFF8EB;color:var(--gold);padding:2px 7px;border-radius:20px;margin:2px;display:inline-block;">${v}</span>`).join('')}</div>`;
+      }
+      if(hasNote)inner+=`<div style="font-size:13px;font-weight:300;color:var(--deep);font-style:italic;">"${d.notes}"</div>`;
+      div.innerHTML=inner;ns.appendChild(div);
+    }
+  }
+  if(!any)ns.innerHTML='<div style="font-size:13px;color:var(--mid);font-style:italic;">Tus victorias, sensaciones y notas aparecerán acá.</div>';
 }
 function exportData(){const b=new Blob([JSON.stringify(appData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='reset-julieta.json';a.click();}
 
