@@ -151,10 +151,43 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 .dc-n{font-family:'DM Mono',monospace;font-size:17px;font-weight:500;}
 .dc-day{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);}
 .dc-s{font-size:9px;color:var(--green);margin-top:3px;}
+/* HERO */
+.hero{background:var(--deep);margin:-32px -24px 32px;padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:280px;border-bottom:2px solid var(--terra);}
+.hero-left{padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between;position:relative;}
+.hero-left::after{content:'';position:absolute;right:0;top:0;width:1px;height:100%;background:var(--terra);opacity:.4;}
+.hero-title{font-size:clamp(42px,6vw,72px);font-weight:300;line-height:.92;color:var(--warm);letter-spacing:-.02em;}
+.hero-title em{font-style:italic;color:var(--terra-l);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);}
+.hero-sub{font-size:14px;font-weight:300;color:var(--sand);line-height:1.6;max-width:300px;}
+.hero-right{padding:40px 44px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-content:center;}
+.hero-stat{border-left:2px solid var(--terra);padding-left:16px;}
+.hero-stat-n{font-size:44px;font-weight:300;color:var(--terra-l);line-height:1;}
+.hero-stat-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);margin-top:4px;}
+.hero-stat-s{font-size:12px;color:var(--mid);font-style:italic;margin-top:3px;}
+/* MACRO GUIDANCE */
+.macro-block{background:var(--card);border:1px solid var(--sand);border-radius:4px;padding:18px 20px;margin-bottom:16px;}
+.macro-block-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:14px;}
+.macro-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.macro-row:last-child{margin-bottom:0;}
+.macro-icon{font-size:16px;flex-shrink:0;width:22px;}
+.macro-info{flex:1;}
+.macro-name{font-size:13px;font-weight:400;margin-bottom:3px;}
+.macro-bar-bg{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;margin-bottom:3px;}
+.macro-bar-f{height:100%;border-radius:3px;transition:width .5s;}
+.macro-bar-f.p{background:var(--terra);}
+.macro-bar-f.c{background:var(--green);}
+.macro-bar-f.f{background:var(--gold);}
+.macro-bar-f.k{background:#7AAFCF;}
+.macro-nums{font-family:'DM Mono',monospace;font-size:9px;color:var(--mid);}
+.macro-guide{font-size:12px;font-style:italic;margin-left:auto;flex-shrink:0;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+.macro-guide.ok{background:#F0F5EB;color:var(--green);}
+.macro-guide.low{background:#FFF0EB;color:var(--terra);}
+.macro-guide.high{background:#FFF8EB;color:var(--gold);}
+.macro-guide.neutral{background:var(--cream);color:var(--mid);}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--cream);}
 ::-webkit-scrollbar-thumb{background:var(--sand);border-radius:3px;}
-@media(max-width:650px){.s4,.sem-strip{grid-template-columns:1fr 1fr;}.steps-card{grid-template-columns:1fr;}.wgrid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:650px){.s4,.sem-strip{grid-template-columns:1fr 1fr;}.steps-card{grid-template-columns:1fr;}.wgrid{grid-template-columns:repeat(4,1fr);}.hero{grid-template-columns:1fr;}.hero-left::after{display:none;}.hero-right{padding-top:0;}}
 </style>
 </head>
 <body>
@@ -176,11 +209,39 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 
 <!-- HOY -->
 <div class="page active" id="page-hoy">
-  <div class="sh">
-    <div class="sh-tag" id="hoy-tag">Hoy · Día 1</div>
-    <h1 class="sh-title">¿Qué <em>comiste</em>?</h1>
-    <div class="sh-sub">Elegí una opción o escribí exactamente lo que tenías en la heladera. Todo se guarda.</div>
+
+  <!-- HERO EDITORIAL -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Plan personal · Mayo 2026</div>
+      <div class="hero-title">Tu<br><em>reset</em><br>de 4<br>semanas</div>
+      <div class="hero-sub">Un plan diseñado desde tu cuerpo, tu ciclo y tu historia — no desde la restricción.</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hero-stat-n">7 kg</div>
+        <div class="hero-stat-l">Meta de grasa</div>
+        <div class="hero-stat-s">Agresivo pero posible con consistencia real</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">28</div>
+        <div class="hero-stat-l">Días de proceso</div>
+        <div class="hero-stat-s">4 semanas con foco claro y flexible</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n" id="hero-day">Día 1</div>
+        <div class="hero-stat-l">Estás aquí</div>
+        <div class="hero-stat-s" id="hero-phase">Fase ovulatoria · máxima energía</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n" id="hero-steps-mini">0</div>
+        <div class="hero-stat-l">Pasos hoy</div>
+        <div class="hero-stat-s" id="hero-steps-note">Meta: 10k mínimo</div>
+      </div>
+    </div>
   </div>
+
+  <!-- PASOS -->
   <div class="steps-card">
     <div>
       <div class="steps-num" id="steps-disp">0</div>
@@ -196,15 +257,51 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
         <span class="st-lbl" id="t10k">◦ 10k mínimo</span>
         <span class="st-lbl" id="t15k">◦ 15k feliz</span>
       </div>
-      <div class="steps-msg" id="steps-msg">Registrá tus pasos</div>
+      <div class="steps-msg" id="steps-msg">Registrá tus pasos del día</div>
     </div>
   </div>
-  <div style="margin-bottom:16px;">
-    <div class="prog-row"><div class="prog-lbl">Proteína</div><div class="prog-bg"><div class="prog-fill p" id="pb-p" style="width:0%"></div></div><div class="prog-val" id="pv-p">0 / 110g</div></div>
-    <div class="prog-row"><div class="prog-lbl">Carbos</div><div class="prog-bg"><div class="prog-fill c" id="pb-c" style="width:0%"></div></div><div class="prog-val" id="pv-c">0 / 160g</div></div>
-    <div class="prog-row"><div class="prog-lbl">Grasas</div><div class="prog-bg"><div class="prog-fill f" id="pb-f" style="width:0%"></div></div><div class="prog-val" id="pv-f">0 / 55g</div></div>
-    <div class="prog-row"><div class="prog-lbl">Kcal</div><div class="prog-bg"><div class="prog-fill k" id="pb-k" style="width:0%"></div></div><div class="prog-val" id="pv-k">0 / 1600</div></div>
+
+  <!-- MACROS CON GUÍA -->
+  <div class="macro-block">
+    <div class="macro-block-title">Cómo vas hoy — macros y calorías</div>
+    <div class="macro-row">
+      <div class="macro-icon">🥩</div>
+      <div class="macro-info">
+        <div class="macro-name">Proteína</div>
+        <div class="macro-bar-bg"><div class="macro-bar-f p" id="mb-p" style="width:0%"></div></div>
+        <div class="macro-nums" id="mn-p">0g de 110g</div>
+      </div>
+      <div class="macro-guide neutral" id="mg-p">Empezá a registrar</div>
+    </div>
+    <div class="macro-row">
+      <div class="macro-icon">🌾</div>
+      <div class="macro-info">
+        <div class="macro-name">Carbohidratos</div>
+        <div class="macro-bar-bg"><div class="macro-bar-f c" id="mb-c" style="width:0%"></div></div>
+        <div class="macro-nums" id="mn-c">0g de 160g</div>
+      </div>
+      <div class="macro-guide neutral" id="mg-c">Empezá a registrar</div>
+    </div>
+    <div class="macro-row">
+      <div class="macro-icon">🥑</div>
+      <div class="macro-info">
+        <div class="macro-name">Grasas buenas</div>
+        <div class="macro-bar-bg"><div class="macro-bar-f f" id="mb-f" style="width:0%"></div></div>
+        <div class="macro-nums" id="mn-f">0g de 55g</div>
+      </div>
+      <div class="macro-guide neutral" id="mg-f">Empezá a registrar</div>
+    </div>
+    <div class="macro-row">
+      <div class="macro-icon">⚡</div>
+      <div class="macro-info">
+        <div class="macro-name">Calorías totales</div>
+        <div class="macro-bar-bg"><div class="macro-bar-f k" id="mb-k" style="width:0%"></div></div>
+        <div class="macro-nums" id="mn-k">0 de 1600 kcal</div>
+      </div>
+      <div class="macro-guide neutral" id="mg-k">Empezá a registrar</div>
+    </div>
   </div>
+
   <div id="hoy-meals"></div>
   <div style="margin-top:18px;">
     <div class="sh-tag" style="margin-bottom:5px;">Notas del día</div>
@@ -329,21 +426,17 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
   <div class="sh">
     <div class="sh-tag">Seguimiento</div>
     <h1 class="sh-title">Tus <em>datos</em></h1>
-    <div class="sh-sub">Pesate los lunes a la mañana en ayunas. Exportá el JSON para subir a GitHub.</div>
+    <div class="sh-sub">Lo que importa no es la balanza — es la adherencia, los pasos y cómo te sentís.</div>
   </div>
   <div class="s4">
     <div class="sb"><div class="sb-v" id="sd-days">0</div><div class="sb-l">Días registrados</div><div class="sb-s">de 28 totales</div></div>
     <div class="sb"><div class="sb-v" id="sd-meals">0</div><div class="sb-l">Comidas logueadas</div><div class="sb-s">total del mes</div></div>
     <div class="sb"><div class="sb-v" id="sd-steps">—</div><div class="sb-l">Promedio pasos</div><div class="sb-s">días registrados</div></div>
-    <div class="sb"><div class="sb-v" id="sd-weight">—</div><div class="sb-l">Δ peso</div><div class="sb-s">desde inicio</div></div>
+    <div class="sb"><div class="sb-v" id="sd-adh">—</div><div class="sb-l">Adherencia</div><div class="sb-s">comidas / esperadas</div></div>
   </div>
-  <div class="sh-tag" style="margin-bottom:9px;">Registro de peso</div>
-  <div style="display:flex;gap:7px;align-items:center;margin-bottom:14px;">
-    <input type="number" class="w-inp" id="wInp" placeholder="ej: 65.4" step="0.1">
-    <button class="btn-p" onclick="logWeight()">Guardar</button>
-    <button class="btn-s" onclick="exportData()">Exportar JSON</button>
+  <div style="display:flex;gap:7px;align-items:center;margin-bottom:20px;">
+    <button class="btn-s" onclick="exportData()">Exportar JSON para GitHub</button>
   </div>
-  <div id="w-hist"></div>
   <div class="sh-tag" style="margin-top:22px;margin-bottom:10px;">Vista de los 28 días</div>
   <div class="wgrid" id="w-grid"></div>
   <div class="sh-tag" style="margin-top:18px;margin-bottom:9px;">Notas del mes</div>
@@ -436,8 +529,21 @@ function changeDay(){curDay=parseInt(document.getElementById('daySelect').value)
 
 // ── HOY ──
 function renderHoy(){
-  document.getElementById('hoy-tag').textContent='Hoy · Día '+curDay+' del plan';
+  const phases=[
+    {d:7,label:'Fase menstrual · cuidá la energía'},
+    {d:13,label:'Fase folicular · energía en ascenso'},
+    {d:14,label:'Fase ovulatoria · máxima energía'},
+    {d:28,label:'Fase lútea · más hambre, es normal'},
+  ];
+  const cycleDay=((curDay-1)%28)+1;
+  let phase=phases[phases.length-1];
+  for(const p of phases){if(cycleDay<=p.d){phase=p;break;}}
+  document.getElementById('hero-day').textContent='Día '+curDay;
+  document.getElementById('hero-phase').textContent=phase.label;
   const d=gd(curDay);
+  const steps=d.steps||0;
+  document.getElementById('hero-steps-mini').textContent=steps>=1000?Math.round(steps/1000)+'k':steps||0;
+  document.getElementById('hero-steps-note').textContent=steps>=15000?'🎉 Meta feliz alcanzada':steps>=10000?'✓ Meta mínima ok':'Meta: 10k mínimo';
   document.getElementById('dayNotes').value=d.notes||'';
   document.getElementById('stepsInp').value=d.steps||'';
   document.getElementById('steps-disp').textContent=(d.steps||0).toLocaleString('es-AR');
@@ -496,8 +602,46 @@ function logC(mid){
 function updMacros(){
   const d=gd(curDay);let p=0,c=0,f=0,k=0;
   MEALS.forEach(m=>{const l=d.meals[m.id];if(l&&l.t==='p'){const o=m.options[l.i];if(o){p+=o.p;c+=o.c;f+=o.f;k+=o.k;}}});
-  const set=(id,v,max,u)=>{document.getElementById('pb-'+id).style.width=Math.min(100,v/max*100)+'%';document.getElementById('pv-'+id).textContent=v+u+' / '+max+u;};
-  set('p',p,110,'g');set('c',c,160,'g');set('f',f,55,'g');set('k',k,1600,'');
+  const T={p:110,c:160,f:55,k:1600};
+  const hasMeals=Object.keys(d.meals||{}).some(id=>d.meals[id]);
+
+  function guide(val,max,type){
+    if(!hasMeals)return{cls:'neutral',txt:'Empezá a registrar'};
+    const pct=val/max;
+    if(type==='p'){
+      if(pct<0.4)return{cls:'low',txt:'Falta mucho — priorizá proteína'};
+      if(pct<0.7)return{cls:'low',txt:'Sumá proteína en la próxima'};
+      if(pct<0.9)return{cls:'ok',txt:'Vas bien 💪'};
+      if(pct<=1.1)return{cls:'ok',txt:'Perfecto ✓'};
+      return{cls:'high',txt:'Suficiente por hoy'};
+    }
+    if(type==='c'){
+      if(pct<0.4)return{cls:'low',txt:'Podés sumar carbos'};
+      if(pct<0.8)return{cls:'ok',txt:'En rango 🌾'};
+      if(pct<=1.05)return{cls:'ok',txt:'Perfecto ✓'};
+      return{cls:'high',txt:'Con cuidado el resto del día'};
+    }
+    if(type==='f'){
+      if(pct<0.4)return{cls:'low',txt:'Sumá grasas buenas'};
+      if(pct<=1.0)return{cls:'ok',txt:'En rango 🥑'};
+      return{cls:'high',txt:'Ya llegaste — sin más hoy'};
+    }
+    if(type==='k'){
+      if(pct<0.5)return{cls:'neutral',txt:'Vas en la mitad del día'};
+      if(pct<0.85)return{cls:'ok',txt:'Buen ritmo ⚡'};
+      if(pct<=1.0)return{cls:'ok',txt:'Casi completo ✓'};
+      return{cls:'high',txt:'Superaste el tope — cenar liviano'};
+    }
+    return{cls:'neutral',txt:''};
+  }
+
+  const gp=guide(p,T.p,'p'),gc=guide(c,T.c,'c'),gf=guide(f,T.f,'f'),gk=guide(k,T.k,'k');
+  const set=(id,val,max,unit,g)=>{
+    document.getElementById('mb-'+id).style.width=Math.min(110,val/max*100)+'%';
+    document.getElementById('mn-'+id).textContent=val+unit+' de '+max+unit;
+    const el=document.getElementById('mg-'+id);el.textContent=g.txt;el.className='macro-guide '+g.cls;
+  };
+  set('p',p,T.p,'g',gp);set('c',c,T.c,'g',gc);set('f',f,T.f,'g',gf);set('k',k,T.k,' kcal',gk);
 }
 function saveNotes(){const d=gd(curDay);d.notes=document.getElementById('dayNotes').value;save();}
 
@@ -579,24 +723,14 @@ function sendSug(el){document.getElementById('chatInp').value=el.textContent;sen
 function ckd(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}}
 
 // ── DATOS ──
-function logWeight(){
-  const v=parseFloat(document.getElementById('wInp').value);if(isNaN(v))return;
-  if(!appData.wts)appData.wts=[];
-  appData.wts.push({date:new Date().toISOString().split('T')[0],val:v,day:curDay});
-  save();document.getElementById('wInp').value='';renderDatos();
-}
 function renderDatos(){
   let dwd=0,tm=0,ts=0,sd=0;
   for(let i=1;i<=28;i++){const d=appData[dk(i)];if(!d)continue;const mc=Object.keys(d.meals||{}).length;if(mc>0)dwd++;tm+=mc;if(d.steps>0){ts+=d.steps;sd++;}}
   document.getElementById('sd-days').textContent=dwd;
   document.getElementById('sd-meals').textContent=tm;
   document.getElementById('sd-steps').textContent=sd>0?Math.round(ts/sd).toLocaleString('es-AR'):'—';
-  const wts=appData.wts||[];
-  if(wts.length>=2){const df=(wts[wts.length-1].val-wts[0].val).toFixed(1);document.getElementById('sd-weight').textContent=(df>0?'+':'')+df+' kg';}
-  else document.getElementById('sd-weight').textContent='—';
-  const wh=document.getElementById('w-hist');wh.innerHTML='';
-  if(!wts.length){wh.innerHTML='<div style="font-size:13px;color:var(--mid);font-style:italic;padding:8px 0;">Pesate el lunes a la mañana y registrá acá.</div>';}
-  else{[...wts].reverse().forEach((w,i,a)=>{const prev=a[i+1];let dH='';if(prev){const df=(w.val-prev.val).toFixed(1);const cls=df<=0?'down':'up';dH=`<span class="we-d ${cls}">${df>0?'+':''}${df} kg</span>`;}const e=document.createElement('div');e.className='we';e.innerHTML=`<span class="we-date">Día ${w.day} · ${w.date}</span><span class="we-val">${w.val} kg</span>${dH}`;wh.appendChild(e);});}
+  const adh=dwd>0?Math.round(tm/(dwd*5)*100)+'%':'—';
+  document.getElementById('sd-adh').textContent=adh;
   const wg=document.getElementById('w-grid');wg.innerHTML='';const dns=['D','L','M','M','J','V','S'];
   for(let i=1;i<=28;i++){const d=appData[dk(i)];const mc=d?Object.keys(d.meals||{}).length:0;const dc=document.createElement('div');dc.className='dc'+(i===curDay?' today':'')+(mc>0?' hasd':'');dc.onclick=()=>{curDay=i;document.getElementById('daySelect').value=i;showPage('hoy');renderHoy();};dc.innerHTML=`<div class="dc-n">${i}</div><div class="dc-day">${dns[(i-1)%7]}</div><div class="dc-s">${mc>0?mc+'/5':''}${d&&d.steps>=10000?' 👣':''}</div>`;wg.appendChild(dc);}
   const ns=document.getElementById('notes-sum');ns.innerHTML='';let any=false;
