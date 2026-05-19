@@ -607,8 +607,12 @@ function renderMeals(){
       <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Opciones del plan</div>
       <div class="chips-row">${chips}</div>
       <div class="c-lbl">O escribí exactamente lo que comiste</div>
-      <textarea class="c-inp" id="ci-${m.id}" rows="2" placeholder="Ej: pan de masa madre + palta + 2 huevos revueltos con espinaca">${cv}</textarea>
-      <button class="c-save" onclick="logC('${m.id}')">Guardar lo que comí</button>
+      <textarea class="c-inp" id="ci-${m.id}" rows="2" placeholder="Ej: pan de masa madre + palta + 3 huevos revueltos con espinaca">${cv}</textarea>
+      <div style="display:flex;gap:7px;margin-top:6px;align-items:center;flex-wrap:wrap;">
+        <button class="c-save" onclick="logCwithAI('${m.id}')">✨ Calcular macros y guardar</button>
+        <span id="ai-status-${m.id}" style="font-family:'DM Mono',monospace;font-size:9px;color:var(--mid);font-style:italic;"></span>
+      </div>
+      ${log&&log.t==='c'&&log.macros?mpillsRaw(log.macros):''}
       ${log&&log.t==='p'?mpills(m.options[log.i]):''}
       ${log?`<div class="feel-section">
         <div class="feel-lbl">¿Cómo quedaste?</div>
@@ -621,26 +625,75 @@ function renderMeals(){
   });
 }
 function mpills(o){if(!o)return'';return`<div class="mpills"><span class="mp p">P ${o.p}g</span><span class="mp c">C ${o.c}g</span><span class="mp f">G ${o.f}g</span><span class="mp k">${o.k} kcal</span></div>`;}
-function toggleH(id){document.getElementById('hc-'+id).classList.toggle('open');}
+function mpillsRaw(m){if(!m)return'';return`<div class="mpills"><span class="mp p">P ${m.p}g</span><span class="mp c">C ${m.c}g</span><span class="mp f">G ${m.f}g</span><span class="mp k">${m.k} kcal</span><span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--mid);padding:2px 6px;">✨ via IA</span></div>`;}
+
+async function logCwithAI(mid){
+  const txt=document.getElementById('ci-'+mid).value.trim();
+  if(!txt)return;
+  const statusEl=document.getElementById('ai-status-'+mid);
+  statusEl.textContent='Calculando macros...';
+  // Save text immediately
+  const d=gd(curDay);
+  d.meals[mid]={t:'c',txt,ts:Date.now(),macros:null};
+  save();renderMeals();updMacros();
+  // Re-show status after re-render
+  const statusEl2=document.getElementById('ai-status-'+mid);
+  if(statusEl2)statusEl2.textContent='Calculando macros...';
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:200,
+        system:`Sos un calculador de macros nutricionales. El usuario te dice exactamente qué comió y vos respondés SOLO con un JSON con los macros estimados. Sin explicación, sin texto extra, solo el JSON.
+Formato exacto: {"p":25,"c":30,"f":12,"k":330}
+Donde p=proteína en gramos, c=carbohidratos en gramos, f=grasas en gramos, k=kilocalorías.
+Estimá con precisión razonable para una persona. Si algo es ambiguo, usá porciones estándar.`,
+        messages:[{role:'user',content:`¿Cuáles son los macros de esta comida? "${txt}"`}]
+      })
+    });
+    const data=await res.json();
+    const raw=data.content?.[0]?.text||'';
+    const clean=raw.replace(/```json|```/g,'').trim();
+    const macros=JSON.parse(clean);
+    // Update with macros
+    const d2=gd(curDay);
+    if(d2.meals[mid]){d2.meals[mid].macros=macros;}
+    save();renderMeals();updMacros();
+  }catch(e){
+    const d2=gd(curDay);
+    if(d2.meals[mid]){d2.meals[mid].macros=null;}
+    save();
+    const s=document.getElementById('ai-status-'+mid);
+    if(s)s.textContent='No se pudo calcular. Guardado sin macros.';
+  }
+}
+function logC(mid){
+  const txt=document.getElementById('ci-'+mid).value.trim();if(!txt)return;
+  const d=gd(curDay);d.meals[mid]={t:'c',txt,ts:Date.now()};save();renderMeals();updMacros();
+}
 function logP(mid,idx){
   const d=gd(curDay);
   if(d.meals[mid]&&d.meals[mid].t==='p'&&d.meals[mid].i===idx)delete d.meals[mid];
   else d.meals[mid]={t:'p',i:idx,ts:Date.now()};
   save();renderMeals();updMacros();
 }
+function toggleH(id){document.getElementById('hc-'+id).classList.toggle('open');}
 function logFeel(mid,feel){
   const d=gd(curDay);
   if(!d.meals[mid])return;
   d.meals[mid].feel=d.meals[mid].feel===feel?null:feel;
   save();renderMeals();updMacros();
 }
-function logC(mid){
-  const txt=document.getElementById('ci-'+mid).value.trim();if(!txt)return;
-  const d=gd(curDay);d.meals[mid]={t:'c',txt,ts:Date.now()};save();renderMeals();updMacros();
-}
 function updMacros(){
   const d=gd(curDay);let p=0,c=0,f=0,k=0;
-  MEALS.forEach(m=>{const l=d.meals[m.id];if(l&&l.t==='p'){const o=m.options[l.i];if(o){p+=o.p;c+=o.c;f+=o.f;k+=o.k;}}});
+  MEALS.forEach(m=>{
+    const l=d.meals[m.id];
+    if(!l)return;
+    if(l.t==='p'){const o=m.options[l.i];if(o){p+=o.p;c+=o.c;f+=o.f;k+=o.k;}}
+    if(l.t==='c'&&l.macros){p+=l.macros.p||0;c+=l.macros.c||0;f+=l.macros.f||0;k+=l.macros.k||0;}
+  });
   const T={p:110,c:160,f:55,k:1600};
   const hasMeals=Object.keys(d.meals||{}).some(id=>d.meals[id]);
 
