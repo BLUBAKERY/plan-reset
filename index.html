@@ -640,7 +640,7 @@ async function logCwithAI(mid){
   const statusEl2=document.getElementById('ai-status-'+mid);
   if(statusEl2)statusEl2.textContent='Calculando macros...';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('/.netlify/functions/claude',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -853,7 +853,7 @@ async function sendChat(){
   document.getElementById('chatSend').disabled=true;
   document.getElementById('typingInd').style.display='block';scrollChat();
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:chatHist})});
     const data=await res.json();
     const reply=data.content?.[0]?.text||'No pude procesar la respuesta.';
