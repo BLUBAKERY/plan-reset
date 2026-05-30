@@ -9,33 +9,35 @@
 :root{--cream:#F5F0E8;--warm:#FAF8F4;--sand:#D4C5A9;--terra:#B5614A;--terra-l:#C97B64;--deep:#2C2420;--mid:#6B5B52;--green:#8B9E6E;--green-l:#A8BA8A;--gold:#C4A862;--card:#fff9f4;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--cream);color:var(--deep);font-family:'Cormorant Garamond',serif;font-size:16px;}
-nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-items:center;justify-content:space-between;padding:11px 24px;border-bottom:2px solid var(--terra);gap:10px;flex-wrap:wrap;}
+nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-bottom:2px solid var(--terra);gap:10px;flex-wrap:wrap;}
 .nav-brand{color:var(--warm);font-size:19px;font-style:italic;font-weight:300;white-space:nowrap;}
 .nav-tabs{display:flex;gap:3px;flex-wrap:wrap;}
-.nav-tab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border:none;cursor:pointer;background:transparent;color:var(--sand);border-radius:2px;transition:all .2s;}
+.nav-tab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border:none;cursor:pointer;background:transparent;color:var(--sand);border-radius:2px;transition:all .2s;}
 .nav-tab.active,.nav-tab:hover{background:var(--terra);color:white;}
 .day-sel{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);display:flex;align-items:center;gap:6px;}
 .day-sel select{background:transparent;border:1px solid var(--mid);color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;padding:4px 7px;cursor:pointer;}
-.page{display:none;padding:32px 24px;max-width:1020px;margin:0 auto;}
+.page{display:none;padding:28px 20px;max-width:1020px;margin:0 auto;}
 .page.active{display:block;}
-.sh{margin-bottom:24px;}
+.sh{margin-bottom:22px;}
 .sh-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:5px;}
-.sh-title{font-size:34px;font-weight:300;line-height:1.1;}
+.sh-title{font-size:32px;font-weight:300;line-height:1.1;}
 .sh-title em{font-style:italic;color:var(--terra);}
 .sh-sub{font-size:14px;color:var(--mid);font-weight:300;margin-top:6px;line-height:1.6;}
-/* PROGRESS */
-.prog-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
-.prog-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);width:72px;flex-shrink:0;}
-.prog-bg{flex:1;height:5px;background:var(--sand);border-radius:3px;overflow:hidden;}
-.prog-fill{height:100%;border-radius:3px;transition:width .4s;}
-.prog-fill.p{background:var(--terra);}
-.prog-fill.c{background:var(--green);}
-.prog-fill.f{background:var(--gold);}
-.prog-fill.k{background:#7AAFCF;}
-.prog-val{font-family:'DM Mono',monospace;font-size:10px;color:var(--deep);width:85px;text-align:right;white-space:nowrap;}
+/* HERO */
+.hero{background:var(--deep);margin:-28px -20px 28px;padding:0;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--terra);}
+.hero-left{padding:32px 36px;display:flex;flex-direction:column;justify-content:space-between;}
+.hero-title{font-size:clamp(38px,6vw,64px);font-weight:300;line-height:.92;color:var(--warm);letter-spacing:-.02em;}
+.hero-title em{font-style:italic;color:var(--terra-l);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);}
+.hero-sub{font-size:13px;font-weight:300;color:var(--sand);line-height:1.6;}
+.hero-right{padding:32px 36px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-content:center;}
+.hero-stat{border-left:2px solid var(--terra);padding-left:14px;}
+.hero-stat-n{font-size:38px;font-weight:300;color:var(--terra-l);line-height:1;}
+.hero-stat-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);margin-top:3px;}
+.hero-stat-s{font-size:11px;color:var(--mid);font-style:italic;margin-top:2px;}
 /* STEPS */
-.steps-card{background:var(--deep);border-radius:4px;padding:18px 22px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;}
-.steps-num{font-size:48px;font-weight:300;color:var(--gold);line-height:1;}
+.steps-card{background:var(--deep);border-radius:4px;padding:16px 20px;margin-bottom:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;}
+.steps-num{font-size:44px;font-weight:300;color:var(--gold);line-height:1;}
 .steps-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);margin-top:3px;}
 .steps-inp-row{display:flex;gap:7px;align-items:center;margin-top:10px;}
 .s-inp{font-family:'DM Mono',monospace;font-size:12px;border:1px solid var(--mid);background:transparent;color:var(--gold);padding:5px 9px;border-radius:2px;width:100px;}
@@ -45,32 +47,53 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 .st-lbl{font-family:'DM Mono',monospace;font-size:9px;color:var(--sand);}
 .st-lbl.hit{color:var(--green-l);}
 .steps-msg{font-size:13px;font-style:italic;color:var(--sand);margin-top:7px;}
+/* MACRO BLOCK */
+.macro-block{background:var(--card);border:1px solid var(--sand);border-radius:4px;padding:16px 18px;margin-bottom:14px;}
+.macro-block-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:12px;}
+.macro-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.macro-row:last-child{margin-bottom:0;}
+.macro-icon{font-size:15px;flex-shrink:0;width:20px;}
+.macro-info{flex:1;}
+.macro-name{font-size:13px;font-weight:400;margin-bottom:2px;}
+.macro-bar-bg{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;margin-bottom:2px;}
+.macro-bar-f{height:100%;border-radius:3px;transition:width .5s;}
+.macro-bar-f.p{background:var(--terra);}
+.macro-bar-f.c{background:var(--green);}
+.macro-bar-f.f{background:var(--gold);}
+.macro-bar-f.k{background:#7AAFCF;}
+.macro-nums{font-family:'DM Mono',monospace;font-size:9px;color:var(--mid);}
+.macro-guide{font-size:11px;font-style:italic;margin-left:auto;flex-shrink:0;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+.macro-guide.ok{background:#F0F5EB;color:var(--green);}
+.macro-guide.low{background:#FFF0EB;color:var(--terra);}
+.macro-guide.high{background:#FFF8EB;color:var(--gold);}
+.macro-guide.neutral{background:var(--cream);color:var(--mid);}
 /* MEAL CARDS */
-.mlc{background:var(--card);border:1px solid var(--sand);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-.mlc-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-left:4px solid var(--terra);cursor:pointer;}
+.mlc{background:var(--card);border:1px solid var(--sand);border-radius:4px;margin-bottom:11px;overflow:hidden;}
+.mlc-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-left:4px solid var(--terra);cursor:pointer;}
 .mlc-hdr.green{border-color:var(--green);}
 .mlc-hdr.gold{border-color:var(--gold);}
 .mlc-hdr.blue{border-color:#7AAFCF;}
 .mlc-hdr.night{border-color:#9B88D4;}
 .mlc-time{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);}
-.mlc-name{font-size:19px;font-weight:300;}
-.mlc-done{font-size:12px;font-style:italic;color:var(--green);margin-top:2px;}
+.mlc-name{font-size:18px;font-weight:300;}
+.mlc-done{font-size:11px;font-style:italic;color:var(--green);margin-top:2px;}
 .mlc-right{display:flex;align-items:center;gap:8px;}
-.chk{font-size:20px;}
-.chevron{font-size:15px;color:var(--mid);transition:transform .22s;}
+.chk{font-size:19px;}
+.chevron{font-size:14px;color:var(--mid);transition:transform .22s;}
 .mlc.open .chevron{transform:rotate(180deg);}
-.mlc-body{display:none;padding:0 17px 17px;}
+.mlc-body{display:none;padding:0 16px 16px;}
 .mlc.open .mlc-body{display:block;}
 /* CHIPS */
-.chips-row{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 8px;}
+.chips-row{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 7px;}
 .chip{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.07em;padding:4px 10px;border-radius:20px;border:1px solid var(--sand);cursor:pointer;transition:all .15s;background:var(--warm);color:var(--mid);}
 .chip:hover{border-color:var(--terra-l);color:var(--terra);}
 .chip.sel{background:var(--terra);border-color:var(--terra);color:white;}
 /* CUSTOM INPUT */
-.c-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;margin-top:10px;}
+.c-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;margin-top:9px;}
 .c-inp{font-family:'Cormorant Garamond',serif;font-size:14px;border:1px solid var(--sand);background:var(--warm);padding:8px 11px;border-radius:3px;width:100%;color:var(--deep);resize:none;}
 .c-inp:focus{outline:none;border-color:var(--terra-l);}
 .c-save{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:white;border:none;padding:6px 12px;cursor:pointer;border-radius:2px;margin-top:5px;}
+.c-status{font-family:'DM Mono',monospace;font-size:9px;color:var(--mid);font-style:italic;margin-left:8px;}
 /* MACRO PILLS */
 .mpills{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;}
 .mp{font-family:'DM Mono',monospace;font-size:8px;padding:2px 7px;border-radius:20px;}
@@ -78,133 +101,138 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 .mp.c{background:#F0F5EB;color:var(--green);}
 .mp.f{background:#FFF8EB;color:var(--gold);}
 .mp.k{background:#EBF0FF;color:#5577BB;}
+.mp.x{background:var(--cream);color:var(--mid);}
+/* FEEL */
+.feel-section{margin-top:11px;padding-top:11px;border-top:1px dashed var(--sand);}
+.feel-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;}
 /* RECIPE */
 .rec-btn{display:inline-flex;align-items:center;gap:4px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);background:transparent;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-top:7px;}
-.rec-box{display:none;margin-top:10px;background:#FFF8F5;border-left:3px solid var(--terra);padding:14px 16px;border-radius:0 3px 3px 0;}
+.rec-box{display:none;margin-top:9px;background:#FFF8F5;border-left:3px solid var(--terra);padding:13px 15px;border-radius:0 3px 3px 0;}
 .rec-box.open{display:block;}
-.rec-box h4{font-size:15px;font-weight:400;margin-bottom:8px;}
-.rec-box ul,.rec-box ol{padding-left:15px;}
-.rec-box li{font-size:13px;color:var(--mid);line-height:1.8;font-weight:300;}
-.rec-portion{margin-top:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:#F0F5EB;padding:4px 9px;display:inline-block;}
-/* FEEL */
-.feel-section{margin-top:12px;padding-top:12px;border-top:1px dashed var(--sand);}
-.feel-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;}
-.feel-chip{font-size:11px !important;}
+.rec-box h4{font-size:15px;font-weight:400;margin-bottom:7px;}
+.rec-box ul,.rec-box ol{padding-left:14px;}
+.rec-box li{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;}
+.rec-portion{margin-top:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:#F0F5EB;padding:4px 8px;display:inline-block;}
+/* SLEEP */
+.sleep-card{background:var(--card);border:1px solid var(--sand);border-radius:4px;padding:16px 18px;margin-top:12px;}
+.sleep-title{font-size:17px;font-weight:300;margin-bottom:3px;}
+.sleep-title em{font-style:italic;color:var(--terra);}
+.sleep-row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap;}
+.sleep-inp{font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--sand);background:var(--warm);padding:6px 10px;border-radius:2px;width:80px;color:var(--deep);}
+.sleep-chips{display:flex;gap:5px;flex-wrap:wrap;}
+/* TRACKER */
+.tracker-card{background:var(--card);border:1px solid var(--sand);border-radius:4px;padding:16px 18px;margin-top:12px;}
+.tracker-title{font-size:17px;font-weight:300;margin-bottom:3px;}
+.tracker-title em{font-style:italic;color:var(--terra);}
+.tracker-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:12px;}
+.tracker-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px dotted var(--sand);}
+.tracker-row:last-child{border:none;}
+.tracker-label{font-size:13px;font-weight:300;display:flex;align-items:center;gap:7px;}
+.tracker-scale{display:flex;gap:4px;}
+.ts-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--sand);background:var(--warm);font-size:14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+.ts-btn.sel{border-color:var(--terra);background:var(--terra);font-size:16px;}
+/* EXERCISE */
+.exercise-card{background:var(--deep);border-radius:4px;padding:16px 18px;margin-top:12px;}
+.ex-title{font-size:17px;font-weight:300;color:var(--warm);margin-bottom:3px;}
+.ex-title em{font-style:italic;color:var(--gold);}
+.ex-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:11px;}
+.ex-types{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px;}
+.ex-chip{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.07em;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .15s;background:rgba(255,255,255,.04);color:var(--sand);}
+.ex-chip.sel{background:var(--gold);border-color:var(--gold);color:var(--deep);}
+.ex-feel{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
+.ex-feel-chip{font-family:'DM Mono',monospace;font-size:8px;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.15);cursor:pointer;background:rgba(255,255,255,.04);color:var(--sand);transition:all .15s;}
+.ex-feel-chip.sel{background:var(--green);border-color:var(--green);color:white;}
+.ex-note{font-family:'Cormorant Garamond',serif;font-size:13px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:7px 10px;border-radius:3px;width:100%;color:var(--warm);resize:none;margin-top:8px;}
+.ex-note::placeholder{color:rgba(255,255,255,.25);}
+.ex-note:focus{outline:none;border-color:var(--gold);}
 /* VICTORIES */
-.vic-section{background:var(--deep);border-radius:4px;padding:22px;margin-top:20px;}
-.vic-title{font-size:22px;font-weight:300;color:var(--warm);margin-bottom:4px;}
+.vic-section{background:var(--deep);border-radius:4px;padding:18px 20px;margin-top:12px;}
+.vic-title{font-size:20px;font-weight:300;color:var(--warm);margin-bottom:3px;}
 .vic-title em{font-style:italic;color:var(--gold);}
-.vic-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:14px;}
-.vic-grid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
-.vic-chip{font-size:12px;padding:6px 13px !important;border-color:rgba(255,255,255,.15) !important;color:var(--sand) !important;background:rgba(255,255,255,.05) !important;line-height:1.3;}
+.vic-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:11px;}
+.vic-grid{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+.vic-chip{font-size:11px;padding:5px 12px !important;border-color:rgba(255,255,255,.12) !important;color:var(--sand) !important;background:rgba(255,255,255,.04) !important;}
 .vic-chip.sel{background:var(--gold) !important;border-color:var(--gold) !important;color:var(--deep) !important;}
-.vic-custom{font-family:'Cormorant Garamond',serif;font-size:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:9px 12px;border-radius:3px;width:100%;color:var(--warm);resize:none;margin-top:4px;}
+.vic-custom{font-family:'Cormorant Garamond',serif;font-size:13px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:8px 11px;border-radius:3px;width:100%;color:var(--warm);resize:none;}
 .vic-custom:focus{outline:none;border-color:var(--gold);}
 .vic-custom::placeholder{color:rgba(255,255,255,.3);}
-.vic-custom-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px;}
-.vic-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-top:10px;letter-spacing:.05em;}
+.vic-custom-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;}
+.vic-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-top:8px;}
 /* NOTE */
-.note-area{font-family:'Cormorant Garamond',serif;font-size:14px;border:1px solid var(--sand);background:var(--warm);padding:10px;border-radius:3px;width:100%;resize:vertical;min-height:65px;color:var(--deep);}
+.note-area{font-family:'Cormorant Garamond',serif;font-size:14px;border:1px solid var(--sand);background:var(--warm);padding:10px;border-radius:3px;width:100%;resize:vertical;min-height:60px;color:var(--deep);}
 /* CHAT */
-.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 120px);max-width:740px;margin:0 auto;}
-.chat-msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:4px 0;}
-.msg{max-width:84%;padding:13px 16px;border-radius:4px;font-size:15px;font-weight:300;line-height:1.7;}
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 115px);max-width:740px;margin:0 auto;}
+.chat-msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:11px;padding:4px 0;}
+.msg{max-width:85%;padding:12px 15px;border-radius:4px;font-size:15px;font-weight:300;line-height:1.7;}
 .msg.user{align-self:flex-end;background:var(--terra);color:white;border-radius:4px 4px 0 4px;}
 .msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--sand);color:var(--deep);border-radius:4px 4px 4px 0;}
-.msg-meta{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;opacity:.55;margin-bottom:3px;}
-.typing{align-self:flex-start;background:var(--card);border:1px solid var(--sand);padding:11px 16px;border-radius:4px;display:none;}
+.msg-meta{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:3px;}
+.typing{align-self:flex-start;background:var(--card);border:1px solid var(--sand);padding:10px 15px;border-radius:4px;display:none;}
 .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sand);margin:0 2px;animation:blink 1.2s infinite;}
-.dot:nth-child(2){animation-delay:.2s;}
-.dot:nth-child(3){animation-delay:.4s;}
+.dot:nth-child(2){animation-delay:.2s;}.dot:nth-child(3){animation-delay:.4s;}
 @keyframes blink{0%,80%,100%{opacity:.2;}40%{opacity:1;}}
-.chat-inp-row{display:flex;gap:7px;margin-top:10px;align-items:flex-end;}
-.chat-inp{font-family:'Cormorant Garamond',serif;font-size:15px;flex:1;border:1px solid var(--sand);background:var(--warm);padding:10px 13px;border-radius:3px;resize:none;color:var(--deep);min-height:46px;max-height:110px;}
+.chat-inp-row{display:flex;gap:7px;margin-top:9px;align-items:flex-end;}
+.chat-inp{font-family:'Cormorant Garamond',serif;font-size:15px;flex:1;border:1px solid var(--sand);background:var(--warm);padding:9px 12px;border-radius:3px;resize:none;color:var(--deep);min-height:44px;max-height:100px;}
 .chat-inp:focus{outline:none;border-color:var(--terra-l);}
-.chat-send{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:white;border:none;padding:11px 16px;cursor:pointer;border-radius:2px;height:46px;}
+.chat-send{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:white;border:none;padding:10px 14px;cursor:pointer;border-radius:2px;height:44px;}
 .chat-send:disabled{opacity:.4;cursor:default;}
-.sugs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px;}
+.sugs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
 .sug{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.07em;padding:4px 10px;border-radius:20px;border:1px solid var(--sand);cursor:pointer;background:var(--warm);color:var(--mid);transition:all .15s;}
 .sug:hover{border-color:var(--terra);color:var(--terra);}
-/* PROTOCOLO */
-.proto-card{background:var(--card);border:1px solid var(--sand);border-radius:4px;margin-bottom:13px;overflow:hidden;}
-.pc-hdr{background:var(--deep);padding:15px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
-.pc-title{font-size:19px;font-weight:300;color:var(--warm);}
-.pc-title em{font-style:italic;color:var(--gold);}
-.pc-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);}
-.pc-body{display:none;padding:20px;}
-.proto-card.open .pc-body{display:block;}
-.ps-item{display:flex;gap:12px;align-items:flex-start;padding:11px 13px;border-radius:3px;background:var(--cream);margin-bottom:8px;}
-.ps-num{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--terra);flex-shrink:0;line-height:1.3;}
-.ps-title{font-size:15px;font-weight:400;margin-bottom:2px;}
-.ps-text{font-size:13px;color:var(--mid);line-height:1.6;font-weight:300;}
 /* SEMANAS */
-.sem-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--sand);border-radius:4px;overflow:hidden;margin-bottom:24px;}
-.sc{background:var(--cream);padding:16px 14px;}
+.sem-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--sand);border-radius:4px;overflow:hidden;margin-bottom:22px;}
+.sc{background:var(--cream);padding:14px 13px;}
 .sc.now{background:var(--terra);}
 .sc.now *{color:white!important;}
 .sc-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:4px;}
-.sc-title{font-size:17px;font-style:italic;font-weight:400;color:var(--terra);margin-bottom:7px;}
+.sc-title{font-size:16px;font-style:italic;font-weight:400;color:var(--terra);margin-bottom:6px;}
 .sc-li{list-style:none;}
-.sc-li li{font-size:12px;color:var(--mid);line-height:1.7;font-weight:300;}
+.sc-li li{font-size:11px;color:var(--mid);line-height:1.7;font-weight:300;}
 .sc-li li::before{content:'→ ';color:var(--terra);font-family:'DM Mono',monospace;}
+/* PROTOCOLO */
+.proto-card{background:var(--card);border:1px solid var(--sand);border-radius:4px;margin-bottom:11px;overflow:hidden;}
+.pc-hdr{background:var(--deep);padding:13px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
+.pc-title{font-size:17px;font-weight:300;color:var(--warm);}
+.pc-title em{font-style:italic;color:var(--gold);}
+.pc-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);}
+.pc-body{display:none;padding:18px;}
+.proto-card.open .pc-body{display:block;}
+.ps-item{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border-radius:3px;background:var(--cream);margin-bottom:7px;}
+.ps-num{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--terra);flex-shrink:0;line-height:1.3;}
+.ps-title{font-size:14px;font-weight:400;margin-bottom:2px;}
+.ps-text{font-size:12px;color:var(--mid);line-height:1.6;font-weight:300;}
 /* DATOS */
-.s4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
-.sb{background:var(--card);border:1px solid var(--sand);padding:16px;border-radius:4px;}
-.sb-v{font-size:30px;font-weight:300;color:var(--terra);}
+.s4{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.sb{background:var(--card);border:1px solid var(--sand);padding:14px;border-radius:4px;}
+.sb-v{font-size:28px;font-weight:300;color:var(--terra);}
 .sb-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-top:3px;}
 .sb-s{font-size:11px;color:var(--mid);font-style:italic;margin-top:2px;}
-.w-inp{font-family:'DM Mono',monospace;font-size:12px;border:1px solid var(--sand);background:var(--warm);padding:6px 11px;border-radius:2px;width:96px;color:var(--deep);}
 .btn-p{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:white;border:none;padding:7px 14px;cursor:pointer;border-radius:2px;}
 .btn-s{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--mid);border:1px solid var(--sand);padding:7px 14px;cursor:pointer;border-radius:2px;}
-.we{display:flex;justify-content:space-between;align-items:center;background:var(--warm);border:1px solid var(--sand);padding:8px 13px;border-radius:3px;font-family:'DM Mono',monospace;font-size:11px;margin-bottom:5px;}
-.we-date{color:var(--mid);}
-.we-val{color:var(--terra);font-weight:500;}
-.we-d.down{color:var(--green);}
-.we-d.up{color:#D05040;}
-.wgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:20px;}
-.dc{background:var(--card);border:1px solid var(--sand);border-radius:3px;padding:9px 5px;text-align:center;cursor:pointer;transition:all .2s;}
+.wgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:18px;}
+.dc{background:var(--card);border:1px solid var(--sand);border-radius:3px;padding:8px 4px;text-align:center;cursor:pointer;transition:all .2s;}
 .dc:hover,.dc.today{border-color:var(--terra);border-width:2px;}
 .dc.hasd{background:#F0F5EB;}
-.dc-n{font-family:'DM Mono',monospace;font-size:17px;font-weight:500;}
+.dc-n{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;}
 .dc-day{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);}
 .dc-s{font-size:9px;color:var(--green);margin-top:3px;}
-/* HERO */
-.hero{background:var(--deep);margin:-32px -24px 32px;padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:280px;border-bottom:2px solid var(--terra);}
-.hero-left{padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between;position:relative;}
-.hero-left::after{content:'';position:absolute;right:0;top:0;width:1px;height:100%;background:var(--terra);opacity:.4;}
-.hero-title{font-size:clamp(42px,6vw,72px);font-weight:300;line-height:.92;color:var(--warm);letter-spacing:-.02em;}
-.hero-title em{font-style:italic;color:var(--terra-l);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);}
-.hero-sub{font-size:14px;font-weight:300;color:var(--sand);line-height:1.6;max-width:300px;}
-.hero-right{padding:40px 44px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-content:center;}
-.hero-stat{border-left:2px solid var(--terra);padding-left:16px;}
-.hero-stat-n{font-size:44px;font-weight:300;color:var(--terra-l);line-height:1;}
-.hero-stat-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);margin-top:4px;}
-.hero-stat-s{font-size:12px;color:var(--mid);font-style:italic;margin-top:3px;}
-/* MACRO GUIDANCE */
-.macro-block{background:var(--card);border:1px solid var(--sand);border-radius:4px;padding:18px 20px;margin-bottom:16px;}
-.macro-block-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:14px;}
-.macro-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.macro-row:last-child{margin-bottom:0;}
-.macro-icon{font-size:16px;flex-shrink:0;width:22px;}
-.macro-info{flex:1;}
-.macro-name{font-size:13px;font-weight:400;margin-bottom:3px;}
-.macro-bar-bg{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;margin-bottom:3px;}
-.macro-bar-f{height:100%;border-radius:3px;transition:width .5s;}
-.macro-bar-f.p{background:var(--terra);}
-.macro-bar-f.c{background:var(--green);}
-.macro-bar-f.f{background:var(--gold);}
-.macro-bar-f.k{background:#7AAFCF;}
-.macro-nums{font-family:'DM Mono',monospace;font-size:9px;color:var(--mid);}
-.macro-guide{font-size:12px;font-style:italic;margin-left:auto;flex-shrink:0;padding:2px 8px;border-radius:20px;white-space:nowrap;}
-.macro-guide.ok{background:#F0F5EB;color:var(--green);}
-.macro-guide.low{background:#FFF0EB;color:var(--terra);}
-.macro-guide.high{background:#FFF8EB;color:var(--gold);}
-.macro-guide.neutral{background:var(--cream);color:var(--mid);}
+/* WEEKLY METRICS */
+.week-metrics{background:var(--card);border:1px solid var(--sand);border-radius:4px;padding:18px;margin-bottom:16px;}
+.wm-title{font-size:20px;font-weight:300;margin-bottom:4px;}
+.wm-title em{font-style:italic;color:var(--terra);}
+.wm-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:16px;}
+.wm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.wm-stat{border-left:3px solid var(--sand);padding-left:12px;}
+.wm-stat.good{border-color:var(--green);}
+.wm-stat.warn{border-color:var(--gold);}
+.wm-stat.bad{border-color:var(--terra);}
+.wm-val{font-size:26px;font-weight:300;color:var(--deep);}
+.wm-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:2px;}
+.wm-note{font-size:12px;color:var(--mid);font-style:italic;margin-top:3px;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--cream);}
 ::-webkit-scrollbar-thumb{background:var(--sand);border-radius:3px;}
-@media(max-width:650px){.s4,.sem-strip{grid-template-columns:1fr 1fr;}.steps-card{grid-template-columns:1fr;}.wgrid{grid-template-columns:repeat(4,1fr);}.hero{grid-template-columns:1fr;}.hero-left::after{display:none;}.hero-right{padding-top:0;}}
+@media(max-width:650px){.s4{grid-template-columns:1fr 1fr;}.sem-strip{grid-template-columns:1fr 1fr;}.steps-card{grid-template-columns:1fr;}.wgrid{grid-template-columns:repeat(4,1fr);}.hero{grid-template-columns:1fr;}.hero-right{padding-top:0;}.wm-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -214,8 +242,8 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
     <button class="nav-tab active" onclick="showPage('hoy')">Hoy</button>
     <button class="nav-tab" onclick="showPage('menu')">Menú</button>
     <button class="nav-tab" onclick="showPage('chat')">Chat</button>
+    <button class="nav-tab" onclick="showPage('semana')">Semana</button>
     <button class="nav-tab" onclick="showPage('proto')">Cookies 🍪</button>
-    <button class="nav-tab" onclick="showPage('sem')">Semanas</button>
     <button class="nav-tab" onclick="showPage('datos')">Datos</button>
   </div>
   <div class="day-sel">
@@ -226,39 +254,20 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 
 <!-- HOY -->
 <div class="page active" id="page-hoy">
-
-  <!-- HERO EDITORIAL -->
   <div class="hero">
     <div class="hero-left">
       <div class="hero-tag">Plan personal · Mayo 2026</div>
       <div class="hero-title">Tu<br><em>reset</em><br>de 4<br>semanas</div>
-      <div class="hero-sub">Un plan diseñado desde tu cuerpo, tu ciclo y tu historia — no desde la restricción.</div>
+      <div class="hero-sub">Diseñado desde tu cuerpo, tu ciclo y tu historia.</div>
     </div>
     <div class="hero-right">
-      <div class="hero-stat">
-        <div class="hero-stat-n">7 kg</div>
-        <div class="hero-stat-l">Meta de grasa</div>
-        <div class="hero-stat-s">Agresivo pero posible con consistencia real</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-n">28</div>
-        <div class="hero-stat-l">Días de proceso</div>
-        <div class="hero-stat-s">4 semanas con foco claro y flexible</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-n" id="hero-day">Día 1</div>
-        <div class="hero-stat-l">Estás aquí</div>
-        <div class="hero-stat-s" id="hero-phase">Fase ovulatoria · máxima energía</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-n" id="hero-steps-mini">0</div>
-        <div class="hero-stat-l">Pasos hoy</div>
-        <div class="hero-stat-s" id="hero-steps-note">Meta: 10k mínimo</div>
-      </div>
+      <div class="hero-stat"><div class="hero-stat-n">7 kg</div><div class="hero-stat-l">Meta de grasa</div><div class="hero-stat-s">Posible con consistencia real</div></div>
+      <div class="hero-stat"><div class="hero-stat-n" id="hero-day">Día 1</div><div class="hero-stat-l">Estás aquí</div><div class="hero-stat-s" id="hero-phase">Fase ovulatoria</div></div>
+      <div class="hero-stat"><div class="hero-stat-n" id="hero-steps-mini">0</div><div class="hero-stat-l">Pasos hoy</div><div class="hero-stat-s" id="hero-steps-note">Meta: 10k mínimo</div></div>
+      <div class="hero-stat"><div class="hero-stat-n" id="hero-kcal">0</div><div class="hero-stat-l">Kcal hoy</div><div class="hero-stat-s" id="hero-kcal-note">Meta: <span id="hero-kcal-target">1600</span></div></div>
     </div>
   </div>
 
-  <!-- PASOS -->
   <div class="steps-card">
     <div>
       <div class="steps-num" id="steps-disp">0</div>
@@ -270,67 +279,65 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
     </div>
     <div>
       <div class="steps-bar-wrap"><div class="steps-bar" id="steps-bar" style="width:0%"></div></div>
-      <div class="steps-targets">
-        <span class="st-lbl" id="t10k">◦ 10k mínimo</span>
-        <span class="st-lbl" id="t15k">◦ 15k feliz</span>
-      </div>
+      <div class="steps-targets"><span class="st-lbl" id="t10k">◦ 10k mínimo</span><span class="st-lbl" id="t15k">◦ 15k feliz</span></div>
       <div class="steps-msg" id="steps-msg">Registrá tus pasos del día</div>
     </div>
   </div>
 
-  <!-- MACROS CON GUÍA -->
   <div class="macro-block">
-    <div class="macro-block-title">Cómo vas hoy — macros y calorías</div>
-    <div class="macro-row">
-      <div class="macro-icon">🥩</div>
-      <div class="macro-info">
-        <div class="macro-name">Proteína</div>
-        <div class="macro-bar-bg"><div class="macro-bar-f p" id="mb-p" style="width:0%"></div></div>
-        <div class="macro-nums" id="mn-p">0g de 110g</div>
-      </div>
-      <div class="macro-guide neutral" id="mg-p">Empezá a registrar</div>
-    </div>
-    <div class="macro-row">
-      <div class="macro-icon">🌾</div>
-      <div class="macro-info">
-        <div class="macro-name">Carbohidratos</div>
-        <div class="macro-bar-bg"><div class="macro-bar-f c" id="mb-c" style="width:0%"></div></div>
-        <div class="macro-nums" id="mn-c">0g de 160g</div>
-      </div>
-      <div class="macro-guide neutral" id="mg-c">Empezá a registrar</div>
-    </div>
-    <div class="macro-row">
-      <div class="macro-icon">🥑</div>
-      <div class="macro-info">
-        <div class="macro-name">Grasas buenas</div>
-        <div class="macro-bar-bg"><div class="macro-bar-f f" id="mb-f" style="width:0%"></div></div>
-        <div class="macro-nums" id="mn-f">0g de 55g</div>
-      </div>
-      <div class="macro-guide neutral" id="mg-f">Empezá a registrar</div>
-    </div>
-    <div class="macro-row">
-      <div class="macro-icon">⚡</div>
-      <div class="macro-info">
-        <div class="macro-name">Calorías totales</div>
-        <div class="macro-bar-bg"><div class="macro-bar-f k" id="mb-k" style="width:0%"></div></div>
-        <div class="macro-nums" id="mn-k">0 de 1600 kcal</div>
-      </div>
-      <div class="macro-guide neutral" id="mg-k">Empezá a registrar</div>
-    </div>
+    <div class="macro-block-title" id="macro-block-title">Cómo vas hoy — meta: 1600 kcal</div>
+    <div class="macro-row"><div class="macro-icon">🥩</div><div class="macro-info"><div class="macro-name">Proteína</div><div class="macro-bar-bg"><div class="macro-bar-f p" id="mb-p" style="width:0%"></div></div><div class="macro-nums" id="mn-p">0g de 110g</div></div><div class="macro-guide neutral" id="mg-p">Empezá a registrar</div></div>
+    <div class="macro-row"><div class="macro-icon">🌾</div><div class="macro-info"><div class="macro-name">Carbohidratos</div><div class="macro-bar-bg"><div class="macro-bar-f c" id="mb-c" style="width:0%"></div></div><div class="macro-nums" id="mn-c">0g de 150g</div></div><div class="macro-guide neutral" id="mg-c">Empezá a registrar</div></div>
+    <div class="macro-row"><div class="macro-icon">🥑</div><div class="macro-info"><div class="macro-name">Grasas buenas</div><div class="macro-bar-bg"><div class="macro-bar-f f" id="mb-f" style="width:0%"></div></div><div class="macro-nums" id="mn-f">0g de 50g</div></div><div class="macro-guide neutral" id="mg-f">Empezá a registrar</div></div>
+    <div class="macro-row"><div class="macro-icon">⚡</div><div class="macro-info"><div class="macro-name">Calorías totales</div><div class="macro-bar-bg"><div class="macro-bar-f k" id="mb-k" style="width:0%"></div></div><div class="macro-nums" id="mn-k">0 de 1600 kcal</div></div><div class="macro-guide neutral" id="mg-k">Empezá a registrar</div></div>
   </div>
 
   <div id="hoy-meals"></div>
-  <div id="vic-section" class="vic-section">
+
+  <div class="sleep-card">
+    <div class="sh-tag" style="margin-bottom:4px;">Sueño</div>
+    <div class="sleep-title">¿Cómo <em>dormiste</em>?</div>
+    <div class="sleep-row">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:4px;">Horas</div>
+        <input type="number" class="sleep-inp" id="sleepHrs" placeholder="ej: 7.5" step="0.5" min="0" max="12" oninput="saveSleep()">
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:4px;">Calidad</div>
+        <div class="sleep-chips" id="sleep-chips"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="ex-sub">Movimiento del día</div>
+    <div class="ex-title">¿Hiciste <em>ejercicio</em>?</div>
+    <div class="ex-types" id="ex-types"></div>
+    <div id="ex-feel-wrap" style="display:none;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;">¿Cómo te sentiste?</div>
+      <div class="ex-feel" id="ex-feel"></div>
+      <textarea class="ex-note" id="exNote" rows="1" placeholder="Algo que quieras recordar..." oninput="saveExNote()"></textarea>
+    </div>
+  </div>
+
+  <div class="tracker-card">
+    <div class="sh-tag" style="margin-bottom:4px;">Tracker</div>
+    <div class="tracker-title">Tu <em>cuerpo y mente</em> hoy</div>
+    <div style="font-size:11px;color:var(--mid);font-weight:300;margin:6px 0 12px;">😊 nada · 🙁 leve · 😟 moderado · 😰 intenso</div>
+    <div id="tracker-rows"></div>
+  </div>
+
+  <div class="vic-section">
     <div class="vic-sub">Victorias del día</div>
     <div class="vic-title">¿Qué celebrás <em>hoy</em>?</div>
-    <div style="font-size:13px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.6;">No tiene que ser perfecto. Tiene que ser tuyo.</div>
+    <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.45);margin-bottom:14px;line-height:1.6;">No tiene que ser perfecto. Tiene que ser tuyo.</div>
     <div class="vic-grid" id="vic-chips"></div>
     <div class="vic-custom-lbl">O escribí la tuya</div>
     <textarea class="vic-custom" id="vicCustom" rows="2" placeholder="Ej: me hablé con amor cuando sentí que me equivoqué..." oninput="saveVicCustom()"></textarea>
     <div class="vic-count" id="vic-count"></div>
   </div>
 
-  <div style="margin-top:18px;">
+  <div style="margin-top:14px;">
     <div class="sh-tag" style="margin-bottom:5px;">Notas del día</div>
     <textarea class="note-area" id="dayNotes" placeholder="Cómo te sentiste en general, qué notaste, qué querés recordar..." oninput="saveNotes()"></textarea>
   </div>
@@ -338,244 +345,386 @@ nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-
 
 <!-- MENÚ -->
 <div class="page" id="page-menu">
-  <div class="sh">
-    <div class="sh-tag">Menú completo</div>
-    <h1 class="sh-title">Todo lo que <em>podés comer</em></h1>
-    <div class="sh-sub">Expandí cada sección. Recetas paso a paso con porciones exactas.</div>
-  </div>
+  <div class="sh"><div class="sh-tag">Menú completo</div><h1 class="sh-title">Todo lo que <em>podés comer</em></h1><div class="sh-sub">Expandí cada sección. Recetas paso a paso con porciones exactas.</div></div>
   <div id="menu-list"></div>
 </div>
 
 <!-- CHAT -->
 <div class="page" id="page-chat">
   <div class="chat-wrap">
-    <div class="sh" style="margin-bottom:10px;">
-      <div class="sh-tag">Antes de decidir</div>
-      <h1 class="sh-title" style="font-size:26px;">Chat con <em>Claude</em></h1>
-    </div>
+    <div class="sh" style="margin-bottom:8px;"><div class="sh-tag">Antes de decidir</div><h1 class="sh-title" style="font-size:24px;">Chat con <em>Claude</em></h1></div>
     <div class="sugs">
       <span class="sug" onclick="sendSug(this)">Tengo ganas de dulce, ¿qué hago?</span>
       <span class="sug" onclick="sendSug(this)">¿Puedo comer uvas esta noche?</span>
       <span class="sug" onclick="sendSug(this)">Llegué a 12k pasos, ¿como más?</span>
       <span class="sug" onclick="sendSug(this)">Me excedí con las cookies, ¿qué hago?</span>
-      <span class="sug" onclick="sendSug(this)">No tengo hambre a la mañana, ¿salteo el desayuno?</span>
-      <span class="sug" onclick="sendSug(this)">Estoy en fase lútea y quiero azúcar, ¿es normal?</span>
+      <span class="sug" onclick="sendSug(this)">No tengo hambre a la mañana</span>
+      <span class="sug" onclick="sendSug(this)">Estoy en fase lútea y quiero azúcar</span>
     </div>
     <div class="chat-msgs" id="chatMsgs">
-      <div class="msg bot">
-        <div class="msg-meta">Claude · asistente del plan</div>
-        Hola Juli 🌿 Estoy acá para ayudarte a tomar buenas decisiones antes de actuar — si tenés un antojo, algo que no está en el menú, o una duda sobre si algo encaja en el plan. Preguntame con total confianza.
-      </div>
+      <div class="msg bot"><div class="msg-meta">Claude · asistente del plan</div>Hola Juli 🌿 Estoy acá para ayudarte a tomar buenas decisiones antes de actuar. Preguntame lo que quieras.</div>
     </div>
     <div class="typing" id="typingInd"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
     <div class="chat-inp-row">
-      <textarea class="chat-inp" id="chatInp" placeholder="Ej: tengo uvas en casa y ganas de dulce, ¿las como?" rows="2" onkeydown="ckd(event)"></textarea>
+      <textarea class="chat-inp" id="chatInp" placeholder="Escribí tu pregunta..." rows="2" onkeydown="ckd(event)"></textarea>
       <button class="chat-send" id="chatSend" onclick="sendChat()">Enviar</button>
     </div>
   </div>
 </div>
 
-<!-- PROTOCOLO COOKIES -->
-<div class="page" id="page-proto">
-  <div class="sh">
-    <div class="sh-tag">Día especial</div>
-    <h1 class="sh-title">Protocolo <em>cookies</em> 🍪</h1>
-    <div class="sh-sub">Para cocinar con placer y sin espiral. Leelo antes de encender el horno.</div>
+<!-- SEMANA -->
+<div class="page" id="page-semana">
+  <div class="sh"><div class="sh-tag">Métricas semanales</div><h1 class="sh-title">Tu <em>semana</em></h1><div class="sh-sub">Patrones, correlaciones y qué ajustar la semana que viene.</div></div>
+  <div style="margin-bottom:14px;">
+    <label style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);">Ver semana</label>
+    <select id="weekSelect" onchange="renderWeekMetrics()" style="font-family:'DM Mono',monospace;font-size:11px;border:1px solid var(--sand);background:var(--warm);padding:5px 10px;margin-left:10px;cursor:pointer;">
+      <option value="1">Semana 1 (Días 1–7)</option>
+      <option value="2">Semana 2 (Días 8–14)</option>
+      <option value="3">Semana 3 (Días 15–21)</option>
+      <option value="4">Semana 4 (Días 22–28)</option>
+    </select>
   </div>
-  <div style="background:var(--terra);padding:18px 22px;border-radius:4px;margin-bottom:20px;">
-    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:7px;">Antes de empezar, leé esto</div>
-    <div style="font-size:16px;font-weight:300;color:white;line-height:1.7;">Las cookies son parte del plan. No son una trampa ni una prueba. Son una actividad de cocina con un resultado comestible. El peligro no es hacerlas — es la <em style="font-style:italic">mezcla de masa cruda + probadita + probadita + "ya total"</em>. Este protocolo existe para que eso no pase.</div>
-  </div>
-  <div class="proto-card open">
-    <div class="pc-hdr" onclick="this.parentElement.classList.toggle('open')">
-      <div><div class="pc-tag">Antes de cocinar</div><div class="pc-title">Preparación <em>mental y física</em></div></div>
-      <span style="color:var(--gold);">⌄</span>
-    </div>
-    <div class="pc-body">
-      <div class="ps-item"><div class="ps-num">01</div><div><div class="ps-title">Comé algo antes</div><div class="ps-text">No cocinés con hambre. Una merienda 30–45 min antes. El hambre es el mayor disparador de probar la masa cruda.</div></div></div>
-      <div class="ps-item"><div class="ps-num">02</div><div><div class="ps-title">Definí la cantidad antes de empezar</div><div class="ps-text">¿Cuántas cookies hacés? ¿Cuántas son para vos hoy y cuántas van al freezer? Decidilo ahora, antes de que el olor te domine. Ejemplo: "Hago 18. 3 son para mí hoy. El resto al freezer."</div></div></div>
-      <div class="ps-item"><div class="ps-num">03</div><div><div class="ps-title">Preparar un snack de cocina</div><div class="ps-text">Dejá cerca un bol con algo para picar mientras cocinás: uvas, nueces, zanahoria. Que la boca tenga algo y no busque la masa.</div></div></div>
-      <div class="ps-item"><div class="ps-num">04</div><div><div class="ps-title">Música o podcast</div><div class="ps-text">Que cocinar sea un acto placentero completo. El proceso tiene que valer — no solo el producto final.</div></div></div>
-    </div>
-  </div>
-  <div class="proto-card">
-    <div class="pc-hdr" onclick="this.parentElement.classList.toggle('open')">
-      <div><div class="pc-tag">Durante</div><div class="pc-title">El momento <em>peligroso</em></div></div>
-      <span style="color:var(--gold);">⌄</span>
-    </div>
-    <div class="pc-body">
-      <div class="ps-item"><div class="ps-num">05</div><div><div class="ps-title">La masa cruda no es comida</div><div class="ps-text">Una probadita activa el circuito de recompensa y querés más. La primera cookie que probás es la primera cookie horneada y fría.</div></div></div>
-      <div class="ps-item"><div class="ps-num">06</div><div><div class="ps-title">Esperá que se enfríen</div><div class="ps-text">Las cookies recién salidas del horno se sienten más pequeñas e insatisfactorias de lo que son. Esperá 10 min: se firman, crecen en textura y el sabor se asienta.</div></div></div>
-      <div class="ps-item"><div class="ps-num">07</div><div><div class="ps-title">Las que van al freezer, al freezer ya</div><div class="ps-text">Apenas se enfrían, las del freezer van al tupper y al freezer. No al mesón. Lo que no está a la vista no está en el circuito de antojo automático.</div></div></div>
-    </div>
-  </div>
-  <div class="proto-card">
-    <div class="pc-hdr" onclick="this.parentElement.classList.toggle('open')">
-      <div><div class="pc-tag">Si pasó algo</div><div class="pc-title">Si comiste <em>de más</em></div></div>
-      <span style="color:var(--gold);">⌄</span>
-    </div>
-    <div class="pc-body">
-      <div class="ps-item"><div class="ps-num">08</div><div><div class="ps-title">Registralo en el chat, sin juicio</div><div class="ps-text">Abrí el chat y escribí "comí más cookies de las que planeé". Eso es todo. No castigarte, no saltear la próxima comida, no hacer cardio extra.</div></div></div>
-      <div class="ps-item"><div class="ps-num">09</div><div><div class="ps-title">La próxima comida es normal</div><div class="ps-text">Si te excediste en la merienda, la cena es normal — no más chica, no más "limpia". El cuerpo procesa mejor con continuidad que con correcciones.</div></div></div>
-      <div class="ps-item"><div class="ps-num">10</div><div><div class="ps-title">Identificar el disparador</div><div class="ps-text">¿Cocinaste con hambre? ¿Estabas sola y ansiosa? No para culparte — para tener info y manejarlo mejor la próxima. Anotalo en las notas del día.</div></div></div>
-    </div>
-  </div>
-  <div style="background:var(--green);padding:16px 20px;border-radius:4px;margin-top:14px;">
-    <div style="font-size:15px;font-weight:300;color:white;line-height:1.7;">Que seas capaz de hacer cookies, disfrutarlas y no entrar en espiral es exactamente la habilidad que este mes busca desarrollar. No es sobre restricción — es sobre <em style="font-style:italic">relación</em>.</div>
-  </div>
+  <div id="week-metrics-container"></div>
 </div>
 
-<!-- SEMANAS -->
-<div class="page" id="page-sem">
-  <div class="sh">
-    <div class="sh-tag">El arco del mes</div>
-    <h1 class="sh-title">4 <em>semanas</em></h1>
-  </div>
-  <div class="sem-strip">
-    <div class="sc"><div class="sc-tag">Semana 1 · Días 1–7</div><div class="sc-title">Activar</div><ul class="sc-li"><li>Déficit –400 kcal</li><li>Instalar rutina</li><li>10k pasos base</li><li>Pilates 3x</li></ul></div>
-    <div class="sc now"><div class="sc-tag">Semana 2 · Días 8–14 ✦</div><div class="sc-title">Profundizar</div><ul class="sc-li"><li>Déficit –500 kcal</li><li>Sumar proteína</li><li>Yoga 1x extra</li><li>Revisar disparadores</li></ul></div>
-    <div class="sc"><div class="sc-tag">Semana 3 · Días 15–21</div><div class="sc-title">Sostener</div><ul class="sc-li"><li>Fase lútea: más hambre</li><li>Bajar cardio, mantener déficit</li><li>Magnesio + hierro</li><li>No pesarse</li></ul></div>
-    <div class="sc"><div class="sc-tag">Semana 4 · Días 22–28</div><div class="sc-title">Integrar</div><ul class="sc-li"><li>Menstruación probable</li><li>Déficit suave –300</li><li>Consolidar hábitos</li><li>Evaluación final</li></ul></div>
-  </div>
-  <div class="sh-tag" style="margin-bottom:10px;">Ciclo hormonal</div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--sand);border-radius:4px;overflow:hidden;margin-bottom:24px;">
-    <div style="background:var(--cream);padding:14px 12px;"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:3px;">Días 1–7</div><div style="font-size:15px;font-style:italic;margin-bottom:5px;">Menstrual</div><div style="font-size:11px;color:var(--mid);font-weight:300;line-height:1.5;">Pilates suave. Hierro, magnesio. No pesarse.</div></div>
-    <div style="background:var(--cream);padding:14px 12px;"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:3px;">Días 7–13</div><div style="font-size:15px;font-style:italic;margin-bottom:5px;">Folicular</div><div style="font-size:11px;color:var(--mid);font-weight:300;line-height:1.5;">Energía en ascenso. Subir cardio y déficit.</div></div>
-    <div style="background:var(--terra);padding:14px 12px;"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:3px;">Día 14 · Ahora ✦</div><div style="font-size:15px;font-style:italic;margin-bottom:5px;color:white;">Ovulatoria</div><div style="font-size:11px;color:rgba(255,255,255,.85);font-weight:300;line-height:1.5;">Pico de energía. Ideal para instalar el ritmo del mes.</div></div>
-    <div style="background:var(--cream);padding:14px 12px;"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:3px;">Días 15–28</div><div style="font-size:15px;font-style:italic;margin-bottom:5px;">Lútea</div><div style="font-size:11px;color:var(--mid);font-weight:300;line-height:1.5;">Más hambre: normal. Más proteína y carbos complejos.</div></div>
-  </div>
-  <div class="sh-tag" style="margin-bottom:10px;">Movimiento semana tipo</div>
-  <div id="move-list"></div>
+<!-- PROTOCOLO -->
+<div class="page" id="page-proto">
+  <div class="sh"><div class="sh-tag">Día especial</div><h1 class="sh-title">Protocolo <em>cookies</em> 🍪</h1><div class="sh-sub">Para cocinar con placer y sin espiral. Leelo antes de encender el horno.</div></div>
+  <div style="background:var(--terra);padding:16px 20px;border-radius:4px;margin-bottom:18px;"><div style="font-size:15px;font-weight:300;color:white;line-height:1.7;">Las cookies son parte del plan. No son una trampa. El peligro es la <em style="font-style:italic">mezcla de masa cruda + probadita + probadita + "ya total"</em>. Este protocolo existe para que eso no pase.</div></div>
+  <div class="proto-card open"><div class="pc-hdr" onclick="this.parentElement.classList.toggle('open')"><div><div class="pc-tag">Antes</div><div class="pc-title">Preparación <em>mental y física</em></div></div><span style="color:var(--gold);">⌄</span></div>
+  <div class="pc-body">
+    <div class="ps-item"><div class="ps-num">01</div><div><div class="ps-title">Comé algo antes</div><div class="ps-text">No cocinés con hambre. Una merienda 30–45 min antes. El hambre es el mayor disparador de probar la masa cruda.</div></div></div>
+    <div class="ps-item"><div class="ps-num">02</div><div><div class="ps-title">Definí la cantidad antes de empezar</div><div class="ps-text">¿Cuántas cookies hacés? ¿Cuántas son para vos hoy y cuántas van al freezer? Decidilo ahora. Ejemplo: "Hago 18. 3 son para mí hoy. El resto al freezer."</div></div></div>
+    <div class="ps-item"><div class="ps-num">03</div><div><div class="ps-title">Snack de cocina</div><div class="ps-text">Dejá cerca uvas, nueces o zanahoria para picar mientras cocinás. Que la boca tenga algo y no busque la masa.</div></div></div>
+    <div class="ps-item"><div class="ps-num">04</div><div><div class="ps-title">Música o podcast</div><div class="ps-text">Que cocinar sea un acto placentero completo. El proceso tiene que valer — no solo el resultado.</div></div></div>
+  </div></div>
+  <div class="proto-card"><div class="pc-hdr" onclick="this.parentElement.classList.toggle('open')"><div><div class="pc-tag">Durante</div><div class="pc-title">El momento <em>peligroso</em></div></div><span style="color:var(--gold);">⌄</span></div>
+  <div class="pc-body">
+    <div class="ps-item"><div class="ps-num">05</div><div><div class="ps-title">La masa cruda no es comida</div><div class="ps-text">Una probadita activa el circuito de recompensa y querés más. La primera cookie que probás es la primera cookie horneada y fría.</div></div></div>
+    <div class="ps-item"><div class="ps-num">06</div><div><div class="ps-title">Esperá que se enfríen</div><div class="ps-text">Recién salidas del horno se sienten más chicas. Esperá 10 min: se firman y el sabor se asienta.</div></div></div>
+    <div class="ps-item"><div class="ps-num">07</div><div><div class="ps-title">Las del freezer, al freezer ya</div><div class="ps-text">Apenas se enfrían, las del freezer van al tupper. No al mesón. Lo que no está a la vista no está en el antojo automático.</div></div></div>
+  </div></div>
+  <div class="proto-card"><div class="pc-hdr" onclick="this.parentElement.classList.toggle('open')"><div><div class="pc-tag">Si pasó algo</div><div class="pc-title">Si comiste <em>de más</em></div></div><span style="color:var(--gold);">⌄</span></div>
+  <div class="pc-body">
+    <div class="ps-item"><div class="ps-num">08</div><div><div class="ps-title">Registralo en el chat, sin juicio</div><div class="ps-text">Escribí "comí más cookies de las que planeé". Eso es todo. Sin castigarte, sin saltear la próxima comida.</div></div></div>
+    <div class="ps-item"><div class="ps-num">09</div><div><div class="ps-title">La próxima comida es normal</div><div class="ps-text">Si te excediste en la merienda, la cena es normal. El cuerpo procesa mejor con continuidad que con correcciones.</div></div></div>
+    <div class="ps-item"><div class="ps-num">10</div><div><div class="ps-title">Identificar el disparador</div><div class="ps-text">¿Cocinaste con hambre? ¿Estabas ansiosa? No para culparte — para manejarlo mejor la próxima.</div></div></div>
+  </div></div>
+  <div style="background:var(--green);padding:14px 18px;border-radius:4px;margin-top:12px;"><div style="font-size:14px;font-weight:300;color:white;line-height:1.7;">Que seas capaz de hacer cookies, disfrutarlas y no entrar en espiral es exactamente la habilidad que este mes busca desarrollar. No es sobre restricción — es sobre <em style="font-style:italic">relación</em>.</div></div>
 </div>
 
 <!-- DATOS -->
 <div class="page" id="page-datos">
-  <div class="sh">
-    <div class="sh-tag">Seguimiento</div>
-    <h1 class="sh-title">Tus <em>datos</em></h1>
-    <div class="sh-sub">Lo que importa no es la balanza — es la adherencia, los pasos y cómo te sentís.</div>
-  </div>
+  <div class="sh"><div class="sh-tag">Seguimiento</div><h1 class="sh-title">Tus <em>datos</em></h1><div class="sh-sub">Lo que importa no es la balanza — es la adherencia, los pasos y cómo te sentís.</div></div>
   <div class="s4">
     <div class="sb"><div class="sb-v" id="sd-days">0</div><div class="sb-l">Días registrados</div><div class="sb-s">de 28 totales</div></div>
     <div class="sb"><div class="sb-v" id="sd-meals">0</div><div class="sb-l">Comidas logueadas</div><div class="sb-s">total del mes</div></div>
     <div class="sb"><div class="sb-v" id="sd-steps">—</div><div class="sb-l">Promedio pasos</div><div class="sb-s">días registrados</div></div>
-    <div class="sb"><div class="sb-v" id="sd-adh">—</div><div class="sb-l">Adherencia</div><div class="sb-s">comidas / esperadas</div></div>
+    <div class="sb"><div class="sb-v" id="sd-kcal">—</div><div class="sb-l">Promedio kcal</div><div class="sb-s">meta: varía por semana</div></div>
+    <div class="sb"><div class="sb-v" id="sd-prot">—</div><div class="sb-l">Promedio proteína</div><div class="sb-s">meta: 110g/día</div></div>
+    <div class="sb"><div class="sb-v" id="sd-ex">—</div><div class="sb-l">Días con ejercicio</div><div class="sb-s">del mes</div></div>
   </div>
-  <div style="display:flex;gap:7px;align-items:center;margin-bottom:20px;">
-    <button class="btn-s" onclick="exportData()">Exportar JSON para GitHub</button>
-  </div>
-  <div class="sh-tag" style="margin-top:22px;margin-bottom:10px;">Vista de los 28 días</div>
+  <div style="margin-bottom:16px;"><button class="btn-s" onclick="exportData()">Exportar JSON</button></div>
+  <div class="sh-tag" style="margin-bottom:10px;">Vista de los 28 días</div>
   <div class="wgrid" id="w-grid"></div>
-  <div class="sh-tag" style="margin-top:18px;margin-bottom:9px;">Notas del mes</div>
+  <div class="sh-tag" style="margin-top:16px;margin-bottom:10px;">Registro del mes</div>
   <div id="notes-sum"></div>
 </div>
 
 <script>
+// ══════════════════════════════════════════════════════
+// BASE DE DATOS NUTRICIONAL FIJA (por 100g)
+// ══════════════════════════════════════════════════════
+const FOOD_DB = {
+  // CARNES
+  'ojo de bife':      {p:26,c:0, f:9, k:190},
+  'bife':             {p:26,c:0, f:9, k:190},
+  'cuadril':          {p:28,c:0, f:5, k:162},
+  'peceto':           {p:29,c:0, f:4, k:155},
+  'pollo pechuga':    {p:31,c:0, f:3, k:156},
+  'pechuga':          {p:31,c:0, f:3, k:156},
+  'pollo muslo':      {p:25,c:0, f:10,k:190},
+  'muslo':            {p:25,c:0, f:10,k:190},
+  'salmón':           {p:25,c:0, f:13,k:220},
+  'merluza':          {p:18,c:0, f:1, k:82},
+  'brótola':          {p:18,c:0, f:1, k:82},
+  'atún':             {p:23,c:0, f:1, k:103},
+  'langostinos':      {p:20,c:0, f:1, k:89},
+  // HUEVOS
+  'huevo':            {p:13,c:1, f:11,k:155},  // por 100g (~2 huevos)
+  'clara':            {p:11,c:1, f:0, k:52},
+  // LÁCTEOS
+  'yogur griego':     {p:9, c:4, f:5, k:97},
+  // VERDURAS
+  'calabaza':         {p:1, c:7, f:0, k:32},
+  'zapallito':        {p:1, c:3, f:0, k:17},
+  'espinaca':         {p:3, c:2, f:0, k:20},
+  'brócoli':          {p:3, c:5, f:0, k:34},
+  'morrón':           {p:1, c:6, f:0, k:31},
+  'tomate':           {p:1, c:4, f:0, k:18},
+  'berenjena':        {p:1, c:6, f:0, k:25},
+  'zanahoria':        {p:1, c:10,f:0, k:41},
+  'apio':             {p:1, c:3, f:0, k:16},
+  'remolacha':        {p:2, c:10,f:0, k:43},
+  'rúcula':           {p:3, c:2, f:1, k:25},
+  'pepino':           {p:1, c:4, f:0, k:16},
+  'puerro':           {p:1, c:5, f:0, k:31},
+  // TUBÉRCULOS
+  'batata':           {p:2, c:20,f:0, k:86},
+  'papa':             {p:2, c:17,f:0, k:77},
+  // FRUTAS
+  'banana':           {p:1, c:23,f:0, k:89},
+  'manzana':          {p:0, c:14,f:0, k:52},
+  'pera':             {p:0, c:15,f:0, k:57},
+  'mandarina':        {p:1, c:13,f:0, k:53},
+  'naranja':          {p:1, c:12,f:0, k:47},
+  'uvas':             {p:1, c:17,f:0, k:69},
+  'frutos rojos':     {p:1, c:9, f:0, k:43},
+  'frutillas':        {p:1, c:8, f:0, k:32},
+  'kiwi':             {p:1, c:15,f:1, k:61},
+  'palta':            {p:2, c:9, f:15,k:160},
+  'dátil':            {p:2, c:75,f:0, k:277},
+  // GRANOS Y HARINAS
+  'arroz integral':   {p:3, c:23,f:1, k:111},
+  'arroz blanco':     {p:3, c:28,f:0, k:130},
+  'quinoa':           {p:4, c:18,f:2, k:103},
+  'avena':            {p:13,c:67,f:7, k:379},  // seca
+  'pasta arroz':      {p:8, c:79,f:1, k:363},  // seca
+  'pasta garbanzo':   {p:15,c:60,f:4, k:340},  // seca
+  'pan masa madre':   {p:8, c:47,f:1, k:230},
+  'crackers':         {p:10,c:65,f:15,k:450},
+  'panko':            {p:10,c:73,f:3, k:375},
+  'harina almendras': {p:20,c:10,f:54,k:600},
+  // LEGUMBRES
+  'garbanzo':         {p:9, c:27,f:3, k:164},
+  'lentejas':         {p:9, c:20,f:0, k:116},
+  // GRASAS Y ACEITES
+  'aceite oliva':     {p:0, c:0, f:100,k:884},
+  'aceite coco':      {p:0, c:0, f:100,k:862},
+  'mantequilla mani': {p:25,c:20,f:50,k:593},
+  'pasta mani':       {p:25,c:20,f:50,k:593},
+  'mantequilla almendras':{p:21,c:20,f:51,k:598},
+  'nueces':           {p:15,c:14,f:65,k:654},
+  'almendras':        {p:21,c:22,f:49,k:579},
+  'cashews':          {p:18,c:30,f:44,k:553},
+  'semillas chia':    {p:17,c:42,f:31,k:486},
+  'semillas girasol': {p:21,c:20,f:51,k:584},
+  'semillas':         {p:18,c:25,f:45,k:560},
+  // LÁCTEOS Y ALTERNATIVAS
+  'leche coco':       {p:2, c:6, f:21,k:230},  // 100ml
+  'yogur coco':       {p:1, c:5, f:10,k:115},
+  // DULCES Y EXTRAS
+  'chocolate 85':     {p:8, c:14,f:43,k:580},
+  'chocolate 70':     {p:7, c:30,f:38,k:530},
+  'chocolate sin azucar':{p:6,c:25,f:35,k:460},
+  'cacao':            {p:20,c:58,f:14,k:460},  // polvo
+  'miel':             {p:0, c:82,f:0, k:304},
+  'pochoclo':         {p:11,c:74,f:4, k:375},
+  // TAPA TARTA
+  'tapa tarta':       {p:4, c:53,f:7, k:289},
+  // HUMUS
+  'humus':            {p:8, c:14,f:10,k:177},
+};
+
+// Pesos estándar por unidad
+const UNIT_WEIGHTS = {
+  'huevo': 55, 'clara': 35, 'banana': 100, 'manzana': 180, 'mandarina': 80,
+  'naranja': 200, 'pera': 160, 'dátil': 10, 'dátiles': 10,
+  'cda': 15, 'cdas': 15, 'cdita': 5, 'cditas': 5,
+  'taza': 200, 'rebanada': 40, 'tapa': 90,
+};
+
+function parseFoodText(text) {
+  // Parse "140g ojo de bife, 120g calabaza, 2 huevos" -> macros
+  let totalP=0, totalC=0, totalF=0, totalK=0;
+  const log = [];
+
+  // Split by comma or newline
+  const parts = text.toLowerCase().split(/[,\n]+/);
+
+  for (let part of parts) {
+    part = part.trim();
+    if (!part) continue;
+
+    let grams = null;
+    let foodName = null;
+
+    // Try to match: "140g ojo de bife" or "2 huevos" or "1 taza avena"
+    const gramMatch = part.match(/(\d+(?:\.\d+)?)\s*g(?:ramos?)?\s+(.+)/);
+    const unitMatch = part.match(/(\d+(?:\.\d+)?)\s+(huevos?|claras?|bananas?|manzanas?|mandarinas?|dátiles?|cdas?|cditas?|tazas?|rebanadas?|tapas?)\s*(?:de\s+)?(.+)?/);
+    const simpleUnit = part.match(/^(\d+(?:\.\d+)?)\s+(huevos?|claras?|bananas?|mandarinas?|dátiles?)$/);
+
+    if (gramMatch) {
+      grams = parseFloat(gramMatch[1]);
+      foodName = gramMatch[2].trim();
+    } else if (simpleUnit) {
+      const qty = parseFloat(simpleUnit[1]);
+      const unit = simpleUnit[2].replace(/s$/, ''); // singularize
+      const baseUnit = UNIT_WEIGHTS[unit] || UNIT_WEIGHTS[simpleUnit[2]] || 100;
+      grams = qty * baseUnit;
+      foodName = unit;
+    } else if (unitMatch) {
+      const qty = parseFloat(unitMatch[1]);
+      const unit = unitMatch[2].replace(/s$/, '');
+      const extra = unitMatch[3]||'';
+      const baseUnit = UNIT_WEIGHTS[unit] || UNIT_WEIGHTS[unitMatch[2]] || 15;
+      grams = qty * baseUnit;
+      foodName = extra || unit;
+    } else {
+      // No quantity - try to find food name anyway, assume 100g
+      foodName = part;
+      grams = 100;
+    }
+
+    if (!foodName) continue;
+
+    // Find best match in food DB
+    let bestKey = null, bestScore = 0;
+    for (const key of Object.keys(FOOD_DB)) {
+      if (foodName.includes(key) || key.includes(foodName)) {
+        const score = key.length;
+        if (score > bestScore) { bestScore = score; bestKey = key; }
+      }
+      // partial word match
+      const foodWords = foodName.split(' ');
+      const keyWords = key.split(' ');
+      const matches = foodWords.filter(w => w.length > 3 && keyWords.some(k => k.includes(w) || w.includes(k)));
+      if (matches.length > 0 && matches.length > bestScore/4) {
+        bestScore = matches.length * 4; bestKey = key;
+      }
+    }
+
+    if (bestKey && grams) {
+      const db = FOOD_DB[bestKey];
+      const factor = grams / 100;
+      const p = Math.round(db.p * factor);
+      const c = Math.round(db.c * factor);
+      const f = Math.round(db.f * factor);
+      const k = Math.round(db.k * factor);
+      totalP += p; totalC += c; totalF += f; totalK += k;
+      log.push({food: bestKey, grams: Math.round(grams), p, c, f, k});
+    }
+  }
+
+  return { p: totalP, c: totalC, f: totalF, k: totalK, log };
+}
+
+// ══════════════════════════════════════════════════════
+// MEAL DATA
+// ══════════════════════════════════════════════════════
 const MEALS=[
   {id:'desayuno',name:'Desayuno',time:'8–9h',color:'',options:[
-    {name:'Pan masa madre + palta + 3 huevos',desc:'1–2 rebanadas masa madre tostada + ½ palta aplastada + 3 huevos (revueltos o poché). Carbo complejo + grasa buena + proteína. Los carbos de la mañana estabilizan el cortisol y reducen la ansiedad nocturna.',p:24,c:29,f:27,k:445,recipe:null},
-    {name:'Calabaza asada + panko + 2 huevos + palta',desc:'Calabaza en cubos asada, espolvoreada con panko sin gluten para dar textura crocante. 2 huevos a elección + ½ palta. Carbo de bajo índice glucémico + proteína + grasa.',p:17,c:26,f:22,k:395,recipe:null},
-    {name:'Tortitas avena s/gluten + 2 huevos + fruta',desc:'Tortitas de avena sin gluten (ver receta) + 2 huevos revueltos aparte + frutos rojos o banana pequeña.',p:20,c:61,f:14,k:435,recipe:{title:'Tortitas de avena sin gluten',ingredients:['½ taza avena sin gluten','1 huevo','3 cdas leche de coco','Canela + vainilla + pizca sal'],steps:['Mezclás todo hasta homogéneo.','Sartén antiadherente a fuego medio con un toque de aceite coco.','Vertís porciones pequeñas (~2 cdas). Cocinás 2–3 min por lado.','Servís con los huevos revueltos aparte y fruta.'],portion:'2–3 tortitas + los huevos = porción completa.'}},
-    {name:'Smoothie proteico + tostada masa madre',desc:'Licuado: whey o proteína vegana + leche de coco + espinaca + banana pequeña + mantequilla almendras. Con 1 tostada de masa madre. Ojo: la leche de coco suma bastantes grasas buenas.',p:33,c:33,f:30,k:510,recipe:null},
+    {name:'Pan masa madre + palta + 3 huevos',desc:'1–2 rebanadas masa madre tostada + ½ palta + 3 huevos. Los carbos de la mañana estabilizan el cortisol y reducen la ansiedad nocturna.',p:24,c:29,f:27,k:445,recipe:null},
+    {name:'Calabaza asada + panko + 2 huevos + palta',desc:'120g calabaza asada con panko + 2 huevos + ½ palta.',p:17,c:26,f:22,k:395,recipe:null},
+    {name:'Tortitas avena + 2 huevos + fruta',desc:'Tortitas de avena sin gluten + 2 huevos + frutos rojos o banana pequeña.',p:20,c:61,f:14,k:435,recipe:{title:'Tortitas de avena sin gluten',ingredients:['½ taza avena sin gluten','1 huevo','3 cdas leche de coco','Canela + vainilla + pizca sal'],steps:['Mezclás todo.','Sartén a fuego medio.','Cocinás 2–3 min por lado.','Servís con huevos y fruta.'],portion:'2–3 tortitas + huevos = porción completa.'}},
+    {name:'Smoothie proteico + tostada masa madre',desc:'Whey + leche de coco + espinaca + banana + mantequilla almendras + tostada masa madre.',p:33,c:33,f:30,k:510,recipe:null},
   ]},
   {id:'almuerzo',name:'Almuerzo',time:'12–14h',color:'green',options:[
-    {name:'Pasta s/gluten con langostinos y coco',desc:'Pasta de arroz o garbanzo (80g seca) + langostinos 150g + leche de coco 100ml + espinaca + limón. Nota: la pasta tiene bastantes carbos y la leche de coco suma grasas — es la comida más calórica del menú.',p:36,c:67,f:20,k:590,recipe:{title:'Pasta sin gluten con langostinos y leche de coco',ingredients:['80g pasta de arroz o garbanzo s/gluten','150g langostinos (frescos o descongelados)','100ml leche de coco','1 diente ajo entero (se retira)','Puñado espinaca fresca','Jugo ½ limón','Aceite oliva, sal, pimienta, páprika ahumada'],steps:['Cocinás la pasta según el paquete. Reservás con un chorrito aceite para que no se pegue.','En sartén, calentás aceite + ajo entero. Cuando dora, lo retirás.','Saltás langostinos 2–3 min hasta que estén rosados. Reservás.','En la misma sartén: leche de coco + sal + pimienta + páprika. Reducís 2 min a fuego medio.','Incorporás la pasta, los langostinos y la espinaca. Mezclás 1 min.','Terminás con jugo de limón. Servís inmediatamente.'],portion:'1 plato (toda la receta es para 1 persona). Si la hacés al mediodía cenar liviano.'}},
-    {name:'Tarta de atún — media tarta',desc:'1 lata atún + tapa sin gluten + 2 huevos + morrón y espinaca. La tarta con estos ingredientes rinde 2 porciones generosas (media tarta cada una).',p:27,c:29,f:10,k:302,recipe:{title:'Tarta de atún sin gluten',ingredients:['TAPA CASERA: 1 taza harina arroz + ¼ taza fécula + 1 huevo + 3 cdas aceite + sal + agua fría','O: 1 tapa sin gluten comprada','1 lata atún al natural escurrida (~160g)','2 huevos','100ml leche de coco o caldo','Morrón rojo asado','Espinaca cocida y exprimida','Sal, pimienta, orégano, páprika'],steps:['Tapa casera: mezclás secos, incorporás huevo + aceite, agregás agua de a poco hasta formar masa. Estirás y formas el molde. Tapa comprada: directo al molde.','Batís huevos + leche de coco + condimentos.','Mezclás atún + morrón + espinaca exprimida.','Volcás el relleno en la tarta. Cubrís con la mezcla de huevo.','Horneás 30–35 min a 180°C hasta que dore.'],portion:'Media tarta = 1 porción. La tarta rinde 2 almuerzos.'}},
-    {name:'Tarta de pollo y verduras — media tarta',desc:'Pollo desmenuzado + zapallito + morrón + huevo. Misma lógica: rinde 2 porciones.',p:30,c:28,f:10,k:320,recipe:{title:'Tarta de pollo y verduras sin gluten',ingredients:['1 tapa sin gluten','150g pechuga cocida desmenuzada','2 zapallitos rallados y exprimidos','1 morrón rojo','2 huevos','100ml leche de coco','Sal, pimienta, orégano, páprika'],steps:['Preparás la tapa.','Salteás el morrón 3 min en sartén con aceite.','Mezclás pollo + zapallito exprimido + morrón + huevos + leche de coco + condimentos.','Volcás en la tarta.','Horneás 30–35 min a 180°C.'],portion:'Media tarta = 1 porción. Rinde 2 almuerzos.'}},
-    {name:'Bowl arroz integral + pollo',desc:'Pechuga 150g a la plancha + arroz integral ½ taza cocido + tomates cherry + pepino + aceite oliva.',p:41,c:31,f:8,k:360,recipe:null},
-    {name:'Salmón + batata + rúcula',desc:'Salmón 150g con limón y eneldo + batata 150g al horno + rúcula con tomates cherry.',p:36,c:32,f:16,k:445,recipe:null},
+    {name:'Pasta s/gluten con langostinos y coco',desc:'80g pasta + 150g langostinos + 100ml leche de coco + espinaca + limón.',p:36,c:67,f:20,k:590,recipe:{title:'Pasta sin gluten con langostinos y leche de coco',ingredients:['80g pasta de arroz o garbanzo','150g langostinos','100ml leche de coco','Espinaca, limón, aceite, páprika'],steps:['Cocinás la pasta.','Aceite + ajo (retirar). Saltás langostinos.','Leche de coco + condimentos, reducís.','Incorporás pasta + langostinos + espinaca.','Limón al final.'],portion:'1 plato = 1 persona.'}},
+    {name:'Tarta de atún — media tarta',desc:'Media tarta = 1 porción. 1 lata atún + tapa s/gluten + 2 huevos + vegetales.',p:27,c:29,f:10,k:302,recipe:{title:'Tarta de atún sin gluten',ingredients:['1 tapa sin gluten comprada','1 lata atún al natural (~160g)','2 huevos','100ml leche de coco','Morrón asado, espinaca','Sal, pimienta, orégano, páprika'],steps:['Formas la tapa en el molde.','Batís huevos + leche de coco + condimentos.','Mezclás atún + morrón + espinaca.','Volcás en la tarta.','Horneás 30–35 min a 180°C.'],portion:'Media tarta = 1 almuerzo. Rinde 2 porciones.'}},
+    {name:'Tarta de pollo — media tarta',desc:'Pollo desmenuzado + zapallito + morrón + huevo.',p:30,c:28,f:10,k:320,recipe:{title:'Tarta de pollo y verduras',ingredients:['1 tapa sin gluten','150g pechuga cocida desmenuzada','2 zapallitos rallados exprimidos','1 morrón rojo','2 huevos','100ml leche de coco'],steps:['Formas la tapa.','Saltás el morrón.','Mezclás pollo + zapallito + morrón + huevos + coco.','Volcás en la tarta.','Horneás 30–35 min.'],portion:'Media tarta = 1 almuerzo.'}},
+    {name:'Bowl arroz integral + pollo',desc:'150g pechuga a la plancha + ½ taza arroz integral cocido + vegetales.',p:41,c:31,f:8,k:360,recipe:null},
+    {name:'Salmón + batata + rúcula',desc:'150g salmón + 150g batata al horno + rúcula con tomates cherry.',p:36,c:32,f:16,k:445,recipe:null},
+    {name:'Sopa cremosa con proteína',desc:'Sopa de zapallo/zanahoria/apio/puerro + pollo desmenuzado o 2 huevos poché.',p:28,c:20,f:6,k:248,recipe:null},
   ]},
-  {id:'merienda',name:'Merienda / Postre del día',time:'16–17h',color:'gold',options:[
-    {name:'Brownie de batata y cacao',desc:'La receta entera rinde ~8 porciones. 1 cuadrado es una merienda real y satisfactoria.',p:4,c:10,f:5,k:100,recipe:{title:'Brownie de batata y cacao',ingredients:['150g batata cocida y pisada','2 cdas cacao puro amargo','2 huevos','2 cdas mantequilla maní o almendras','1 cda miel o dátiles pisados','1 cdita vainilla','Pizca sal','Opcional: chips chocolate 85%'],steps:['Horno 180°C. Engrasás molde pequeño o usás molde silicona individual.','Mezclás todos los ingredientes hasta pasta homogénea.','Volcás en molde.','Horneás 20–22 min. El centro debe quedar levemente húmedo.','Enfriar antes de cortar.'],portion:'1 cuadrado (1/8 del molde). Heladera hasta 4 días.'}},
-    {name:'Budín de zanahoria s/gluten',desc:'Con harina de almendras. Húmedo, aromático con canela. Dura toda la semana.',p:8,c:14,f:16,k:228,recipe:{title:'Budín de zanahoria con harina de almendras',ingredients:['1½ taza harina de almendras','2 zanahorias medianas ralladas','3 huevos','3 cdas aceite de coco derretido','3 cdas miel','1 cdita canela','½ cdita jengibre','1 cdita polvo hornear s/gluten','Pizca sal'],steps:['Horno 175°C. Engrasar y enharinar molde budinera.','Batís huevos + miel + aceite de coco.','Incorporás harina + polvo + especias.','Agregás zanahoria rallada. Integrás.','Volcás en molde.','Horneás 35–40 min hasta palillo limpio.'],portion:'1 rebanada (1/8). Rico con mantequilla de almendras encima.'}},
-    {name:'Cookies de avena y banana ⭐',desc:'Tu receta de esta semana. Sin azúcar agregada, 15 min, sin gluten. La receta rinde ~18 cookies, 3 cookies = tu porción.',p:4,c:18,f:8,k:160,recipe:{title:'Cookies de avena y banana',ingredients:['2 bananas maduras pisadas','1½ taza avena s/gluten','2 cdas cacao puro','½ taza nueces o chips chocolate 85%','1 cdita canela','Pizca sal'],steps:['Horno 180°C.','Mezclás todo. Reposás 5 min.','Formás bollitas y aplastás en placa con papel manteca.','Horneás 12–14 min.','Enfriar completamente (se firman al enfriar).'],portion:'3 cookies = porción del día. Resto al freezer. Ver protocolo 🍪.'}},
-    {name:'Cheesecake coco y limón (sin horno)',desc:'Sin lactosa. Base de dátiles y nueces, relleno de cashews y crema de coco. Muy denso en grasas buenas.',p:7,c:26,f:18,k:285,recipe:{title:'Cheesecake de coco y limón sin horno',ingredients:['BASE: 1 taza dátiles + 1 taza nueces o almendras','RELLENO: 1 taza cashews remojados 4h + 1 lata crema de coco sólida + jugo 2 limones + ralladura 1 limón + 3 cdas miel + 1 cdita vainilla'],steps:['Procesás dátiles + nueces hasta masa pegajosa. Presionás en molde desmontable. Freezás 15 min.','Procesás todos los ingredientes del relleno hasta muy cremoso.','Volcás sobre la base.','Heladás mínimo 4 horas (mejor de un día para el otro).','Desmoldás y guardás en heladera.'],portion:'1 cuadrado pequeño (1/8). Muy denso — con eso alcanza.'}},
-    {name:'Mousse de chocolate negro',desc:'Chocolate 85% + crema de coco batida. 10 min, porción pequeña pero muy satisfactoria.',p:5,c:10,f:18,k:220,recipe:{title:'Mousse de chocolate y coco',ingredients:['60g chocolate 85%+ derretido','½ lata crema de coco sólida (refrigerada)','1 cda miel','1 cdita vainilla','Pizca sal marina'],steps:['Derretís chocolate a baño maría. Enfriar 5 min.','Batís crema de coco fría hasta textura chantilly.','Incorporás chocolate + miel + vainilla con movimientos envolventes.','Distribuís en copas o vasitos.','Heladás 30 min mínimo.'],portion:'1 copa pequeña (~100g). Muy denso en grasas buenas.'}},
-    {name:'Pochoclo dulce de coco 🍿',desc:'Fibra, carbo complejo, volumen alto, calorías bajas. Ideal para el "necesito masticar".',p:3,c:22,f:5,k:145,recipe:{title:'Pochoclo dulce de coco y canela',ingredients:['3 cdas granos de pochoclo','1 cda aceite de coco','1 cda miel','1 cdita canela','Pizca sal marina'],steps:['Calentás aceite en olla con tapa a fuego medio.','Agregás los granos y tapás. Agitás de vez en cuando.','Cuando paran de explotar (~3 min), apagás.','Calentás miel 15 seg en microondas.','Mezclás pochoclo + miel + canela + sal rápido.','Extendés en placa. Enfriar 5 min.'],portion:'1 bol mediano (toda la receta). Bajo en calorías para el volumen que da.'}},
-    {name:'Yogur griego + frutos rojos + nueces',desc:'Yogur griego (ocasional) + frutos rojos + nueces + 1 cdita cacao.',p:14,c:16,f:10,k:210,recipe:null},
+  {id:'merienda',name:'Merienda / Postre',time:'16–17h',color:'gold',options:[
+    {name:'Brownie de batata y cacao',desc:'Porción = 1/8 de la receta. Sabor intenso a chocolate.',p:4,c:10,f:5,k:100,recipe:{title:'Brownie de batata y cacao',ingredients:['150g batata cocida pisada','2 cdas cacao puro','2 huevos','2 cdas mantequilla maní','1 cda miel','1 cdita vainilla','Pizca sal'],steps:['Horno 180°C.','Mezclás todo.','Molde engrasado.','20–22 min. Centro húmedo.','Enfriar antes de cortar.'],portion:'1 cuadrado (1/8). Heladera 4 días.'}},
+    {name:'Budín de zanahoria',desc:'Con harina de almendras. Húmedo y aromático.',p:8,c:14,f:16,k:228,recipe:{title:'Budín de zanahoria sin gluten',ingredients:['1½ taza harina almendras','2 zanahorias ralladas','3 huevos','3 cdas aceite coco','3 cdas miel','1 cdita canela','1 cdita polvo hornear s/gluten'],steps:['Horno 175°C.','Batís huevos + miel + aceite.','Incorporás harina + polvo + especias.','Agregás zanahoria.','35–40 min.'],portion:'1 rebanada (1/8).'}},
+    {name:'Cookies de avena y banana ⭐',desc:'La receta rinde ~18 cookies. 3 cookies = tu porción.',p:4,c:18,f:8,k:160,recipe:{title:'Cookies de avena y banana',ingredients:['2 bananas maduras pisadas','1½ taza avena s/gluten','2 cdas cacao puro','½ taza nueces o chips chocolate 85%','1 cdita canela'],steps:['Horno 180°C.','Mezclás todo. Reposás 5 min.','Bollitas en placa con papel.','12–14 min.','Enfriar completamente.'],portion:'3 cookies = porción. Resto al freezer. Ver protocolo 🍪.'}},
+    {name:'Cheesecake coco y limón',desc:'Sin horno, sin lactosa. Base de dátiles y nueces.',p:7,c:26,f:18,k:285,recipe:{title:'Cheesecake de coco y limón',ingredients:['BASE: 1 taza dátiles + 1 taza nueces','RELLENO: 1 taza cashews remojados + 1 lata crema coco sólida + jugo 2 limones + ralladura + 3 cdas miel + vainilla'],steps:['Procesás base. Presionás en molde. Freezás 15 min.','Procesás relleno hasta cremoso.','Volcás sobre la base.','Heladás 4 horas mínimo.'],portion:'1 cuadrado (1/8). Muy denso.'}},
+    {name:'Mousse de chocolate negro',desc:'Chocolate 85% + crema de coco batida. 10 min.',p:5,c:10,f:18,k:220,recipe:{title:'Mousse de chocolate y coco',ingredients:['60g chocolate 85%+ derretido','½ lata crema coco sólida (fría)','1 cda miel','1 cdita vainilla'],steps:['Derretís chocolate. Enfriar.','Batís crema coco fría.','Incorporás chocolate + miel + vainilla.','Copas. Heladás 30 min.'],portion:'1 copa pequeña.'}},
+    {name:'Pochoclo dulce de coco 🍿',desc:'Fibra, carbo complejo, volumen alto, calorías bajas.',p:3,c:22,f:5,k:145,recipe:{title:'Pochoclo dulce de coco',ingredients:['3 cdas granos pochoclo','1 cda aceite coco','1 cda miel','1 cdita canela','Pizca sal'],steps:['Aceite en olla tapada. Granos adentro.','~3 min hasta que paran de explotar.','Miel calentada 15 seg.','Mezclar con canela y sal.','Enfriar 5 min en placa.'],portion:'1 bol mediano = la receta entera.'}},
+    {name:'Yogur griego + frutos rojos',desc:'Yogur griego (ocasional) + frutos rojos + nueces.',p:14,c:16,f:10,k:210,recipe:null},
   ]},
   {id:'cena',name:'Cena',time:'19–20h',color:'blue',options:[
-    {name:'Merluza al horno + vegetales asados',desc:'Merluza o brótola 200g con limón y hierbas + calabaza, morrón y berenjena asados (~200g).',p:39,c:15,f:5,k:260,recipe:null},
-    {name:'Carne magra + ensalada tibia',desc:'Cuadril o peceto 150g + ensalada tibia de rúcula, remolacha y semillas de girasol.',p:36,c:10,f:11,k:280,recipe:null},
-    {name:'Sopa cremosa con pollo o huevo',desc:'Sopa espesa de zapallo/zanahoria/apio/puerro + pollo desmenuzado (100g) o 2 huevos poché encima. Tu opción de invierno.',p:28,c:20,f:6,k:248,recipe:null},
-    {name:'Pasta s/gluten langostinos (versión noche)',desc:'60g pasta seca + 120g langostinos + tomate natural + albahaca. Sin leche de coco para mantener las calorías más bajas.',p:26,c:50,f:4,k:340,recipe:null},
-    {name:'Salmón + quinoa + espárragos',desc:'Salmón 150g + quinoa ½ taza cocida + espárragos a la plancha. Alto omega 3. Ideal en fase lútea.',p:39,c:21,f:16,k:385,recipe:null},
+    {name:'Merluza al horno + vegetales asados',desc:'200g merluza o brótola + calabaza, morrón y berenjena asados.',p:39,c:15,f:5,k:260,recipe:null},
+    {name:'Carne magra + ensalada tibia',desc:'150g cuadril o peceto + rúcula tibia con remolacha y semillas.',p:36,c:10,f:11,k:280,recipe:null},
+    {name:'Sopa cremosa con pollo o huevo',desc:'Sopa de zapallo + pollo desmenuzado encima o huevo poché. Tu opción de invierno.',p:28,c:20,f:6,k:248,recipe:null},
+    {name:'Pasta s/gluten langostinos (noche)',desc:'60g pasta + 120g langostinos + tomate natural + albahaca. Sin leche de coco.',p:26,c:50,f:4,k:340,recipe:null},
+    {name:'Salmón + quinoa + espárragos',desc:'150g salmón + ½ taza quinoa cocida + espárragos.',p:39,c:21,f:16,k:385,recipe:null},
   ]},
   {id:'postcena',name:'Ritual nocturno',time:'20–22h ⚠️',color:'night',options:[
-    {name:'Chocolate 85% + infusión con coco',desc:'1–2 cuadraditos chocolate 85% (15g) + infusión (manzanilla, rooibos, jengibre) con 2 cdas leche de coco. Ritual consciente, no automático.',p:2,c:6,f:10,k:120,recipe:null},
-    {name:'Mini porción del postre del día',desc:'Una porción pequeña extra del postre que hiciste. No más de la mitad de lo que comiste en la merienda.',p:3,c:10,f:5,k:95,recipe:null},
-    {name:'Pochoclo dulce solo',desc:'Bol de pochoclo de coco. Volumen alto, calorías bajas. Para el "necesito masticar algo" nocturno.',p:3,c:22,f:5,k:145,recipe:null},
+    {name:'Chocolate 85% + infusión coco',desc:'2 cuadraditos chocolate 85% (15g) + infusión con 2 cdas leche de coco.',p:2,c:6,f:10,k:120,recipe:null},
+    {name:'Mini porción del postre',desc:'Porción pequeña extra del postre del día. Máximo la mitad de la porción normal.',p:3,c:10,f:5,k:95,recipe:null},
+    {name:'Pochoclo dulce',desc:'Bol de pochoclo de coco. Volumen alto, calorías bajas.',p:3,c:22,f:5,k:145,recipe:null},
   ]},
 ];
 
-const MOVE=[
-  {day:'Lunes',name:'Pilates · Fuerza',col:'#B5614A',detail:'Core y tren inferior. Intensidad media-alta.'},
-  {day:'Martes',name:'Caminata · 10k pasos',col:'#8B9E6E',detail:'Tu cardio diario. Meta mínima 10k, meta feliz 15k.'},
-  {day:'Miércoles',name:'Pilates · Fluido',col:'#B5614A',detail:'Cadenas posteriores y apertura de cadera.'},
-  {day:'Jueves',name:'Yoga / Stretching',col:'#C4A862',detail:'30–40 min. Yin, fascia o movilidad articular.'},
-  {day:'Viernes',name:'Pilates · Tonificación',col:'#B5614A',detail:'Clase completa. Opcional: 10 min HIIT suave.'},
-  {day:'Sábado',name:'Cardio suave + pasos',col:'#8B9E6E',detail:'Bici o caminata larga. Que dé placer.'},
-  {day:'Domingo',name:'Descanso activo',col:'#9B9B9B',detail:'Caminar, estirar 15 min. Sin estructura.'},
+const MOVE=['🧘 Pilates','🚶 Caminata','🏃 Trote','🚴 Bici','💪 Gym / Funcional','🌿 Yoga / Stretching','🏊 Nado','💃 Baile / Movimiento libre','🧗 Otro'];
+const EX_FEELS=['🔥 Con mucha energía','💪 Bien, fluido','😌 Tranquila, presente','😤 Me costó pero lo hice','😴 Cansada','🤕 Con molestia'];
+const SLEEP_QUALS=['😴 Profundo','🙂 Bien','😐 Regular','😟 Mal','🌙 Poco'];
+const TRACKERS=[
+  {id:'dulce',icon:'🍫',label:'Antojo de dulce'},
+  {id:'azucar',icon:'🍬',label:'Comí azúcar / fuera del plan'},
+  {id:'ansiedad',icon:'😤',label:'Ansiedad'},
+  {id:'pantallas',icon:'📱',label:'Uso de pantallas'},
+  {id:'cafeina',icon:'☕',label:'Cafeína'},
+  {id:'inflamacion',icon:'🫧',label:'Inflamación'},
+  {id:'gases',icon:'💨',label:'Gases / aire'},
+  {id:'cuerpo',icon:'🚽',label:'Tránsito intestinal'},
+];
+const VICTORIES=[
+  '🚶‍♀️ Salí a caminar aunque no tenía ganas','💪 Completé el entrenamiento','🧘 Estiré o hice movilidad',
+  '⏸ Paré cuando estaba llena','🌿 Buena decisión antes de comer azúcar','👁 Presté atención a mi cuerpo',
+  '🍫 Elegí dentro del antojo respetando mi cuerpo','✨ Lo elegí con intención y presencia',
+  '💬 Me hablé con amor','😴 Me di un descanso sin culpa','🥗 Preparé mi comida con cuidado',
+  '💧 Tomé suficiente agua','🌙 Armé el ritual nocturno','📱 Cerré el teléfono antes de comer',
+  '🎯 Fui al chat antes de decidir','🧠 Noté el antojo sin actuar automáticamente',
+  '🫀 Escuché a mi cuerpo hoy','🌸 Fui amable conmigo aunque no salió perfecto',
 ];
 
-const SYS=`Sos la asistente de nutrición y bienestar personal de Julieta, argentina, 37 años, instructora de Pilates.
+// Targets by week
+const WEEK_TARGETS = {
+  1: {k:1600, p:110, c:160, f:55},
+  2: {k:1500, p:110, c:150, f:50},
+  3: {k:1500, p:110, c:150, f:50},
+  4: {k:1700, p:110, c:165, f:58},
+};
+function getWeekNum(day){ return Math.min(4, Math.ceil(day/7)); }
+function getTargets(day){ return WEEK_TARGETS[getWeekNum(day)]; }
 
-CONTEXTO DE SU PLAN:
-- Meta: bajar 7 kg de grasa en 4 semanas. Déficit ~500 kcal/día.
-- Macros diarios: Proteína 110g, Carbos 160g, Grasas 55g, Kcal ~1600.
-- Sin gluten ni lácteos diarios. Masa madre y yogur griego ocasionales. Sin ajo/cebolla directos. Sin lentejas. Le gusta la leche de coco.
-- Cardio: 10.000 pasos diarios como mínimo, 15.000 como meta feliz. Pilates 3–4x/semana.
-- Zona crítica: ansiedad nocturna después de las 18h, busca dopamina en la comida.
-- Le encantan los postres caseros. Esta semana hace cookies de avena y banana.
-- Suplementa con magnesio glicinato de noche y omega 3.
-- Está en día 14 de su ciclo (ovulatoria): máxima energía disponible.
-- Metas de desinflamación y sin antojos de azúcar.
-
-TU ROL:
-- Respondé como una amiga experta en nutrición — honesta, cálida, sin juicio, directa.
-- Cuando mencione un alimento, evalualo en contexto: ¿encaja? ¿cuánto? ¿mejor alternativa?
-- Si algo está bien, decíselo. Si algo es menos ideal, explicá por qué y ofrecé alternativas concretas.
-- Tené en cuenta el ciclo hormonal cuando sea relevante.
-- Español argentino, conversacional. Máximo 3–4 párrafos. Concisa y útil.
-- Si pregunta por un alimento específico (ej: uvas), mencioná macros aproximados y cómo encaja en el plan.`;
-
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
 let curDay=1, appData={}, chatHist=[];
-
-function load(){try{appData=JSON.parse(localStorage.getItem('rj-v3')||'{}');}catch(e){appData={};}}
-function save(){localStorage.setItem('rj-v3',JSON.stringify(appData));}
+function load(){try{appData=JSON.parse(localStorage.getItem('rj-v4')||'{}');}catch(e){appData={};}}
+function save(){localStorage.setItem('rj-v4',JSON.stringify(appData));}
 function dk(d){return'd'+d;}
-function gd(d){if(!appData[dk(d)])appData[dk(d)]={meals:{},notes:'',steps:0};return appData[dk(d)];}
+function gd(d){if(!appData[dk(d)])appData[dk(d)]={meals:{},notes:'',steps:0,sleep:{},exercise:{types:[],feel:null,note:''},tracker:{},victories:[]};return appData[dk(d)];}
 
 function init(){
   load();
   const sel=document.getElementById('daySelect');
-  for(let i=1;i<=28;i++){const o=document.createElement('option');o.value=i;o.textContent='Día '+i;if(i===1)o.selected=true;sel.appendChild(o);}
-  buildMenu();buildMove();renderHoy();
+  for(let i=1;i<=28;i++){const o=document.createElement('option');o.value=i;o.textContent='Día '+i;sel.appendChild(o);}
+  buildMenuPage();buildMovePage();renderHoy();
 }
 function changeDay(){curDay=parseInt(document.getElementById('daySelect').value);renderHoy();}
 
-// ── HOY ──
+// ══════════════════════════════════════════════════════
+// HOY
+// ══════════════════════════════════════════════════════
 function renderHoy(){
-  const phases=[
-    {d:7,label:'Fase menstrual · cuidá la energía'},
-    {d:13,label:'Fase folicular · energía en ascenso'},
-    {d:14,label:'Fase ovulatoria · máxima energía'},
-    {d:28,label:'Fase lútea · más hambre, es normal'},
-  ];
-  const cycleDay=((curDay-1)%28)+1;
+  const phases=[{d:7,l:'Fase menstrual · cuidá la energía'},{d:13,l:'Fase folicular · energía en ascenso'},{d:14,l:'Fase ovulatoria · máxima energía'},{d:28,l:'Fase lútea · más hambre, es normal'}];
+  const cd=((curDay-1)%28)+1;
   let phase=phases[phases.length-1];
-  for(const p of phases){if(cycleDay<=p.d){phase=p;break;}}
+  for(const p of phases){if(cd<=p.d){phase=p;break;}}
   document.getElementById('hero-day').textContent='Día '+curDay;
-  document.getElementById('hero-phase').textContent=phase.label;
+  document.getElementById('hero-phase').textContent=phase.l;
   const d=gd(curDay);
+  const T=getTargets(curDay);
+  document.getElementById('hero-kcal-target').textContent=T.k;
+  document.getElementById('macro-block-title').textContent=`Cómo vas hoy — meta: ${T.k} kcal (semana ${getWeekNum(curDay)})`;
+  document.getElementById('mn-c').textContent=`0g de ${T.c}g`;
+  document.getElementById('mn-f').textContent=`0g de ${T.f}g`;
   const steps=d.steps||0;
-  document.getElementById('hero-steps-mini').textContent=steps>=1000?Math.round(steps/1000)+'k':steps||0;
-  document.getElementById('hero-steps-note').textContent=steps>=15000?'🎉 Meta feliz alcanzada':steps>=10000?'✓ Meta mínima ok':'Meta: 10k mínimo';
+  document.getElementById('hero-steps-mini').textContent=steps>=1000?Math.round(steps/1000)+'k':steps;
+  document.getElementById('hero-steps-note').textContent=steps>=15000?'🎉 Meta feliz':steps>=10000?'✓ Meta mínima ok':'Meta: 10k mínimo';
   document.getElementById('dayNotes').value=d.notes||'';
   document.getElementById('stepsInp').value=d.steps||'';
   document.getElementById('steps-disp').textContent=(d.steps||0).toLocaleString('es-AR');
-  updSteps(d.steps||0);
-  renderMeals();updMacros();renderVictories();
+  updSteps(steps);
+  renderMeals();updMacros();
+  renderSleep();renderExercise();renderTracker();renderVictories();
 }
 function updSteps(s){
   document.getElementById('steps-bar').style.width=Math.min(100,s/15000*100)+'%';
@@ -589,89 +738,114 @@ function saveSteps(){
   const v=parseInt(document.getElementById('stepsInp').value)||0;
   const d=gd(curDay);d.steps=v;save();
   document.getElementById('steps-disp').textContent=v.toLocaleString('es-AR');updSteps(v);
+  document.getElementById('hero-steps-mini').textContent=v>=1000?Math.round(v/1000)+'k':v;
+  document.getElementById('hero-steps-note').textContent=v>=15000?'🎉 Meta feliz':v>=10000?'✓ Meta mínima ok':'Meta: 10k mínimo';
 }
+
+function calcDayMacros(d){
+  let p=0,c=0,f=0,k=0;
+  MEALS.forEach(m=>{
+    const l=d.meals?.[m.id];
+    if(!l)return;
+    if(l.t==='p'){const o=m.options[l.i];if(o){p+=o.p;c+=o.c;f+=o.f;k+=o.k;}}
+    if(l.t==='c'&&l.macros){p+=l.macros.p||0;c+=l.macros.c||0;f+=l.macros.f||0;k+=l.macros.k||0;}
+  });
+  return{p,c,f,k};
+}
+
+function updMacros(){
+  const d=gd(curDay);
+  const T=getTargets(curDay);
+  const {p,c,f,k}=calcDayMacros(d);
+  const hasMeals=Object.values(d.meals||{}).some(x=>x);
+  document.getElementById('hero-kcal').textContent=k;
+
+  function guide(val,max,type){
+    if(!hasMeals)return{cls:'neutral',txt:'Empezá a registrar'};
+    const pct=val/max;
+    if(type==='p'){
+      if(pct<0.4)return{cls:'low',txt:'Falta proteína'};
+      if(pct<0.75)return{cls:'low',txt:'Sumá proteína'};
+      if(pct<=1.05)return{cls:'ok',txt:'Perfecto ✓'};
+      return{cls:'high',txt:'Suficiente por hoy'};
+    }
+    if(type==='c'){
+      if(pct<0.4)return{cls:'low',txt:'Podés sumar carbos'};
+      if(pct<=1.05)return{cls:'ok',txt:'En rango 🌾'};
+      return{cls:'high',txt:'Con cuidado el resto'};
+    }
+    if(type==='f'){
+      if(pct<0.4)return{cls:'low',txt:'Sumá grasas buenas'};
+      if(pct<=1.05)return{cls:'ok',txt:'En rango 🥑'};
+      return{cls:'high',txt:'Ya llegaste — sin más'};
+    }
+    if(type==='k'){
+      if(pct<0.5)return{cls:'neutral',txt:'Vas en la mitad'};
+      if(pct<0.88)return{cls:'ok',txt:'Buen ritmo ⚡'};
+      if(pct<=1.0)return{cls:'ok',txt:'Casi completo ✓'};
+      return{cls:'high',txt:'Superaste el tope'};
+    }
+    return{cls:'neutral',txt:''};
+  }
+  const set=(id,val,max,unit,type)=>{
+    document.getElementById('mb-'+id).style.width=Math.min(110,val/max*100)+'%';
+    document.getElementById('mn-'+id).textContent=val+unit+' de '+max+unit;
+    const g=guide(val,max,type);
+    const el=document.getElementById('mg-'+id);el.textContent=g.txt;el.className='macro-guide '+g.cls;
+  };
+  set('p',p,T.p,'g','p');set('c',c,T.c,'g','c');set('f',f,T.f,'g','f');set('k',k,T.k,' kcal','k');
+}
+
 function renderMeals(){
   const c=document.getElementById('hoy-meals');c.innerHTML='';
   const d=gd(curDay);
   MEALS.forEach(m=>{
     const log=d.meals[m.id];
-    const chips=m.options.map((o,i)=>`<span class="chip${log&&log.t==='p'&&log.i===i?' sel':''}" onclick="logP('${m.id}',${i})">${o.name.length>40?o.name.slice(0,38)+'…':o.name}</span>`).join('');
-    const cv=log&&log.t==='c'?log.txt:'';
+    const chips=m.options.map((o,i)=>`<span class="chip${log&&log.t==='p'&&log.i===i?' sel':''}" onclick="logP('${m.id}',${i})">${o.name.length>42?o.name.slice(0,40)+'…':o.name}</span>`).join('');
+    const cv=log&&log.t==='c'?log.text:'';
     const div=document.createElement('div');
     div.className='mlc';div.id='hc-'+m.id;
+    let macroHTML='';
+    if(log&&log.t==='p'){const o=m.options[log.i];if(o)macroHTML=`<div class="mpills"><span class="mp p">P ${o.p}g</span><span class="mp c">C ${o.c}g</span><span class="mp f">G ${o.f}g</span><span class="mp k">${o.k}kcal</span></div>`;}
+    if(log&&log.t==='c'&&log.macros){const mo=log.macros;macroHTML=`<div class="mpills"><span class="mp p">P ${mo.p}g</span><span class="mp c">C ${mo.c}g</span><span class="mp f">G ${mo.f}g</span><span class="mp k">${mo.k}kcal</span><span class="mp x">🗄 base fija</span></div>`;}
+    if(log&&log.t==='c'&&!log.macros){macroHTML=`<div class="mpills"><span class="mp x">Sin macros — ingresá con gramos para calcular</span></div>`;}
     div.innerHTML=`<div class="mlc-hdr ${m.color}" onclick="toggleH('${m.id}')">
-      <div><div class="mlc-time">${m.time}</div><div class="mlc-name">${m.name}</div>${log?`<div class="mlc-done">✓ ${log.t==='c'?log.txt:m.options[log.i]?.name||'registrado'}${log.feel?' · '+log.feel:''}</div>`:''}</div>
+      <div><div class="mlc-time">${m.time}</div><div class="mlc-name">${m.name}</div>${log?`<div class="mlc-done">✓ ${log.t==='c'?log.text:m.options[log.i]?.name||''}${log.feel?' · '+log.feel:''}</div>`:''}</div>
       <div class="mlc-right"><span class="chk">${log?'✅':'○'}</span><span class="chevron">⌄</span></div>
     </div>
     <div class="mlc-body">
       <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Opciones del plan</div>
       <div class="chips-row">${chips}</div>
-      <div class="c-lbl">O escribí exactamente lo que comiste</div>
-      <textarea class="c-inp" id="ci-${m.id}" rows="2" placeholder="Ej: pan de masa madre + palta + 3 huevos revueltos con espinaca">${cv}</textarea>
-      <div style="display:flex;gap:7px;margin-top:6px;align-items:center;flex-wrap:wrap;">
-        <button class="c-save" onclick="logCwithAI('${m.id}')">✨ Calcular macros y guardar</button>
-        <span id="ai-status-${m.id}" style="font-family:'DM Mono',monospace;font-size:9px;color:var(--mid);font-style:italic;"></span>
+      <div class="c-lbl">O escribí exactamente lo que comiste (con gramos)</div>
+      <textarea class="c-inp" id="ci-${m.id}" rows="2" placeholder="Ej: 140g ojo de bife, 120g calabaza, 2 huevos, 1 cda humus">${cv}</textarea>
+      <div style="display:flex;align-items:center;gap:7px;margin-top:5px;">
+        <button class="c-save" onclick="logCustom('${m.id}')">Guardar y calcular macros</button>
+        <span class="c-status" id="cs-${m.id}"></span>
       </div>
-      ${log&&log.t==='c'&&log.macros?mpillsRaw(log.macros):''}
-      ${log&&log.t==='p'?mpills(m.options[log.i]):''}
-      ${log?`<div class="feel-section">
-        <div class="feel-lbl">¿Cómo quedaste?</div>
-        <div class="chips-row feel-chips">
-          ${['🌿 Bien','😌 Llena y tranquila','🙂 Con un poco más de hambre','😐 Con hambre','😤 Con ansiedad','🫧 Inflamada','💫 Con energía','😴 Con sueño','🥲 Con culpa','✨ Presente y consciente'].map(f=>`<span class="chip feel-chip${log.feel===f?' sel':''}" onclick="logFeel('${m.id}','${f}')">${f}</span>`).join('')}
-        </div>
-      </div>`:''}
+      ${macroHTML}
+      ${log?`<div class="feel-section"><div class="feel-lbl">¿Cómo quedaste?</div><div class="chips-row">${['🌿 Bien','😌 Llena y tranquila','🙂 Un poco más de hambre','😐 Con hambre','😤 Con ansiedad','🫧 Inflamada','💫 Con energía','😴 Con sueño','🥲 Con culpa','✨ Presente y consciente'].map(f=>`<span class="chip${log.feel===f?' sel':''}" onclick="logFeel('${m.id}','${f}')">${f}</span>`).join('')}</div></div>`:''}
     </div>`;
     c.appendChild(div);
   });
 }
-function mpills(o){if(!o)return'';return`<div class="mpills"><span class="mp p">P ${o.p}g</span><span class="mp c">C ${o.c}g</span><span class="mp f">G ${o.f}g</span><span class="mp k">${o.k} kcal</span></div>`;}
-function mpillsRaw(m){if(!m)return'';return`<div class="mpills"><span class="mp p">P ${m.p}g</span><span class="mp c">C ${m.c}g</span><span class="mp f">G ${m.f}g</span><span class="mp k">${m.k} kcal</span><span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--mid);padding:2px 6px;">✨ via IA</span></div>`;}
 
-async function logCwithAI(mid){
+function logCustom(mid){
   const txt=document.getElementById('ci-'+mid).value.trim();
   if(!txt)return;
-  const statusEl=document.getElementById('ai-status-'+mid);
-  statusEl.textContent='Calculando macros...';
-  // Save text immediately
+  const status=document.getElementById('cs-'+mid);
+  // Parse with fixed DB
+  const result=parseFoodText(txt);
   const d=gd(curDay);
-  d.meals[mid]={t:'c',txt,ts:Date.now(),macros:null};
-  save();renderMeals();updMacros();
-  // Re-show status after re-render
-  const statusEl2=document.getElementById('ai-status-'+mid);
-  if(statusEl2)statusEl2.textContent='Calculando macros...';
-  try{
-    const res=await fetch('/.netlify/functions/claude',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:200,
-        system:`Sos un calculador de macros nutricionales. El usuario te dice exactamente qué comió y vos respondés SOLO con un JSON con los macros estimados. Sin explicación, sin texto extra, solo el JSON.
-Formato exacto: {"p":25,"c":30,"f":12,"k":330}
-Donde p=proteína en gramos, c=carbohidratos en gramos, f=grasas en gramos, k=kilocalorías.
-Estimá con precisión razonable para una persona. Si algo es ambiguo, usá porciones estándar.`,
-        messages:[{role:'user',content:`¿Cuáles son los macros de esta comida? "${txt}"`}]
-      })
-    });
-    const data=await res.json();
-    const raw=data.content?.[0]?.text||'';
-    const clean=raw.replace(/```json|```/g,'').trim();
-    const macros=JSON.parse(clean);
-    // Update with macros
-    const d2=gd(curDay);
-    if(d2.meals[mid]){d2.meals[mid].macros=macros;}
-    save();renderMeals();updMacros();
-  }catch(e){
-    const d2=gd(curDay);
-    if(d2.meals[mid]){d2.meals[mid].macros=null;}
-    save();
-    const s=document.getElementById('ai-status-'+mid);
-    if(s)s.textContent='No se pudo calcular. Guardado sin macros.';
+  if(result.k>0){
+    d.meals[mid]={t:'c',text:txt,macros:result,ts:Date.now()};
+    status.textContent=`✓ Calculado: ${result.k}kcal`;
+    status.style.color='var(--green)';
+  } else {
+    d.meals[mid]={t:'c',text:txt,macros:null,ts:Date.now()};
+    status.textContent='Guardado sin macros (escribí con gramos para calcular)';
+    status.style.color='var(--mid)';
   }
-}
-function logC(mid){
-  const txt=document.getElementById('ci-'+mid).value.trim();if(!txt)return;
-  const d=gd(curDay);d.meals[mid]={t:'c',txt,ts:Date.now()};save();renderMeals();updMacros();
+  save();renderMeals();updMacros();
 }
 function logP(mid,idx){
   const d=gd(curDay);
@@ -681,246 +855,332 @@ function logP(mid,idx){
 }
 function toggleH(id){document.getElementById('hc-'+id).classList.toggle('open');}
 function logFeel(mid,feel){
-  const d=gd(curDay);
-  if(!d.meals[mid])return;
+  const d=gd(curDay);if(!d.meals[mid])return;
   d.meals[mid].feel=d.meals[mid].feel===feel?null:feel;
-  save();renderMeals();updMacros();
+  save();renderMeals();
 }
-function updMacros(){
-  const d=gd(curDay);let p=0,c=0,f=0,k=0;
-  MEALS.forEach(m=>{
-    const l=d.meals[m.id];
-    if(!l)return;
-    if(l.t==='p'){const o=m.options[l.i];if(o){p+=o.p;c+=o.c;f+=o.f;k+=o.k;}}
-    if(l.t==='c'&&l.macros){p+=l.macros.p||0;c+=l.macros.c||0;f+=l.macros.f||0;k+=l.macros.k||0;}
-  });
-  const T={p:110,c:160,f:55,k:1600};
-  const hasMeals=Object.keys(d.meals||{}).some(id=>d.meals[id]);
+function saveNotes(){const d=gd(curDay);d.notes=document.getElementById('dayNotes').value;save();}
+function saveStepsInp(){saveSteps();}
 
-  function guide(val,max,type){
-    if(!hasMeals)return{cls:'neutral',txt:'Empezá a registrar'};
-    const pct=val/max;
-    if(type==='p'){
-      if(pct<0.4)return{cls:'low',txt:'Falta mucho — priorizá proteína'};
-      if(pct<0.7)return{cls:'low',txt:'Sumá proteína en la próxima'};
-      if(pct<0.9)return{cls:'ok',txt:'Vas bien 💪'};
-      if(pct<=1.1)return{cls:'ok',txt:'Perfecto ✓'};
-      return{cls:'high',txt:'Suficiente por hoy'};
-    }
-    if(type==='c'){
-      if(pct<0.4)return{cls:'low',txt:'Podés sumar carbos'};
-      if(pct<0.8)return{cls:'ok',txt:'En rango 🌾'};
-      if(pct<=1.05)return{cls:'ok',txt:'Perfecto ✓'};
-      return{cls:'high',txt:'Con cuidado el resto del día'};
-    }
-    if(type==='f'){
-      if(pct<0.4)return{cls:'low',txt:'Sumá grasas buenas'};
-      if(pct<=1.0)return{cls:'ok',txt:'En rango 🥑'};
-      return{cls:'high',txt:'Ya llegaste — sin más hoy'};
-    }
-    if(type==='k'){
-      if(pct<0.5)return{cls:'neutral',txt:'Vas en la mitad del día'};
-      if(pct<0.85)return{cls:'ok',txt:'Buen ritmo ⚡'};
-      if(pct<=1.0)return{cls:'ok',txt:'Casi completo ✓'};
-      return{cls:'high',txt:'Superaste el tope — cenar liviano'};
-    }
-    return{cls:'neutral',txt:''};
-  }
-
-  const gp=guide(p,T.p,'p'),gc=guide(c,T.c,'c'),gf=guide(f,T.f,'f'),gk=guide(k,T.k,'k');
-  const set=(id,val,max,unit,g)=>{
-    document.getElementById('mb-'+id).style.width=Math.min(110,val/max*100)+'%';
-    document.getElementById('mn-'+id).textContent=val+unit+' de '+max+unit;
-    const el=document.getElementById('mg-'+id);el.textContent=g.txt;el.className='macro-guide '+g.cls;
-  };
-  set('p',p,T.p,'g',gp);set('c',c,T.c,'g',gc);set('f',f,T.f,'g',gf);set('k',k,T.k,' kcal',gk);
+// SLEEP
+function renderSleep(){
+  const d=gd(curDay);const sl=d.sleep||{};
+  document.getElementById('sleepHrs').value=sl.hours||'';
+  document.getElementById('sleep-chips').innerHTML=SLEEP_QUALS.map(q=>`<span class="chip${sl.qual===q?' sel':''}" onclick="setSleepQual('${q}')">${q}</span>`).join('');
 }
-const VICTORIES=[
-  '🚶‍♀️ Salí a caminar aunque no tenía ganas',
-  '💪 Completé el entrenamiento',
-  '🧘 Estiré o hice movilidad',
-  '⏸ Paré cuando estaba llena',
-  '🌿 Tomé una buena decisión antes de comer azúcar',
-  '👁 Presté atención a las sensaciones de mi cuerpo',
-  '🍫 Elegí algo dentro de mi antojo respetando mi cuerpo',
-  '✨ Lo elegí con intención y presencia — no automático',
-  '💬 Me hablé con amor',
-  '😴 Me di un descanso sin culpa',
-  '🥗 Preparé mi comida con cuidado',
-  '💧 Tomé suficiente agua',
-  '🌙 Armé el ritual nocturno',
-  '📱 Cerré el teléfono antes de comer',
-  '🎯 Fui al chat antes de decidir',
-  '🧠 Noté el antojo sin actuar automáticamente',
-  '🫀 Escuché a mi cuerpo hoy',
-  '🌸 Fui amable conmigo aunque no salió perfecto',
-];
+function saveSleep(){
+  const d=gd(curDay);if(!d.sleep)d.sleep={};
+  d.sleep.hours=parseFloat(document.getElementById('sleepHrs').value)||null;
+  save();
+}
+function setSleepQual(q){
+  const d=gd(curDay);if(!d.sleep)d.sleep={};
+  d.sleep.qual=d.sleep.qual===q?null:q;
+  save();renderSleep();
+}
 
+// EXERCISE
+function renderExercise(){
+  const d=gd(curDay);const ex=d.exercise||{types:[],feel:null,note:''};
+  document.getElementById('ex-types').innerHTML=MOVE.map(t=>`<span class="ex-chip${ex.types.includes(t)?' sel':''}" onclick="toggleExType('${t}')">${t}</span>`).join('');
+  const fw=document.getElementById('ex-feel-wrap');
+  if(ex.types.length>0){
+    fw.style.display='block';
+    document.getElementById('ex-feel').innerHTML=EX_FEELS.map(f=>`<span class="ex-feel-chip${ex.feel===f?' sel':''}" onclick="toggleExFeel('${f}')">${f}</span>`).join('');
+    document.getElementById('exNote').value=ex.note||'';
+  } else fw.style.display='none';
+}
+function toggleExType(t){
+  const d=gd(curDay);if(!d.exercise)d.exercise={types:[],feel:null,note:''};
+  const i=d.exercise.types.indexOf(t);
+  if(i>-1)d.exercise.types.splice(i,1);else d.exercise.types.push(t);
+  save();renderExercise();
+}
+function toggleExFeel(f){
+  const d=gd(curDay);if(!d.exercise)d.exercise={types:[],feel:null,note:''};
+  d.exercise.feel=d.exercise.feel===f?null:f;save();renderExercise();
+}
+function saveExNote(){const d=gd(curDay);if(!d.exercise)d.exercise={types:[],feel:null,note:''};d.exercise.note=document.getElementById('exNote').value;save();}
+
+// TRACKER
+function renderTracker(){
+  const d=gd(curDay);const tr=d.tracker||{};
+  document.getElementById('tracker-rows').innerHTML=TRACKERS.map(t=>{
+    const val=tr[t.id]??null;
+    const btns=['😊','🙁','😟','😰'].map((e,i)=>`<button class="ts-btn${val===i?' sel':''}" onclick="setTracker('${t.id}',${i})">${e}</button>`).join('');
+    return`<div class="tracker-row"><div class="tracker-label">${t.icon} ${t.label}</div><div class="tracker-scale">${btns}</div></div>`;
+  }).join('');
+}
+function setTracker(id,val){
+  const d=gd(curDay);if(!d.tracker)d.tracker={};
+  d.tracker[id]=d.tracker[id]===val?null:val;save();renderTracker();
+}
+
+// VICTORIES
 function renderVictories(){
-  const d=gd(curDay);
-  const sel=d.victories||[];
-  const grid=document.getElementById('vic-chips');
-  grid.innerHTML='';
-  VICTORIES.forEach(v=>{
-    const s=sel.includes(v);
-    const chip=document.createElement('span');
-    chip.className='chip vic-chip'+(s?' sel':'');
-    chip.textContent=v;
-    chip.onclick=()=>toggleVictory(v);
-    grid.appendChild(chip);
-  });
+  const d=gd(curDay);const sel=d.victories||[];
+  document.getElementById('vic-chips').innerHTML=VICTORIES.map(v=>`<span class="chip vic-chip${sel.includes(v)?' sel':''}" onclick="toggleVic('${v.replace(/'/g,"\\'")}')">${v}</span>`).join('');
   document.getElementById('vicCustom').value=d.vicCustom||'';
-  const total=sel.length+(d.vicCustom&&d.vicCustom.trim()?1:0);
-  const cEl=document.getElementById('vic-count');
-  if(total===0)cEl.textContent='';
-  else if(total===1)cEl.textContent='✦ 1 victoria celebrada hoy';
-  else cEl.textContent=`✦ ${total} victorias celebradas hoy — eso es todo`;
+  const tot=sel.length+(d.vicCustom?.trim()?1:0);
+  document.getElementById('vic-count').textContent=tot>0?`✦ ${tot} victoria${tot>1?'s':''} celebrada${tot>1?'s':''} hoy`:'';
 }
-function toggleVictory(v){
-  const d=gd(curDay);
-  if(!d.victories)d.victories=[];
-  const idx=d.victories.indexOf(v);
-  if(idx>-1)d.victories.splice(idx,1);
-  else d.victories.push(v);
+function toggleVic(v){
+  const d=gd(curDay);if(!d.victories)d.victories=[];
+  const i=d.victories.indexOf(v);
+  if(i>-1)d.victories.splice(i,1);else d.victories.push(v);
   save();renderVictories();
 }
 function saveVicCustom(){
-  const d=gd(curDay);
-  d.vicCustom=document.getElementById('vicCustom').value;
-  save();
-  const sel=d.victories||[];
-  const total=sel.length+(d.vicCustom&&d.vicCustom.trim()?1:0);
-  const cEl=document.getElementById('vic-count');
-  if(total===0)cEl.textContent='';
-  else if(total===1)cEl.textContent='✦ 1 victoria celebrada hoy';
-  else cEl.textContent=`✦ ${total} victorias celebradas hoy — eso es todo`;
+  const d=gd(curDay);d.vicCustom=document.getElementById('vicCustom').value;save();renderVictories();
 }
-function saveNotes(){const d=gd(curDay);d.notes=document.getElementById('dayNotes').value;save();}
 
-// ── MENU ──
-function buildMenu(){
+// ══════════════════════════════════════════════════════
+// MENÚ
+// ══════════════════════════════════════════════════════
+function buildMenuPage(){
   const list=document.getElementById('menu-list');list.innerHTML='';
   MEALS.forEach(m=>{
     const avgP=Math.round(m.options.reduce((a,b)=>a+b.p,0)/m.options.length);
-    const avgC=Math.round(m.options.reduce((a,b)=>a+b.c,0)/m.options.length);
-    const avgF=Math.round(m.options.reduce((a,b)=>a+b.f,0)/m.options.length);
     const avgK=Math.round(m.options.reduce((a,b)=>a+b.k,0)/m.options.length);
     const opts=m.options.map((o,i)=>`
-      <div style="border:1px solid var(--sand);border-radius:3px;padding:13px 15px;margin-bottom:9px;background:var(--warm);">
-        <div style="font-size:17px;font-weight:400;margin-bottom:3px;">${o.name}</div>
-        <div style="font-size:13px;color:var(--mid);font-weight:300;line-height:1.6;">${o.desc}</div>
-        <div class="mpills" style="margin-top:8px;"><span class="mp p">P ${o.p}g</span><span class="mp c">C ${o.c}g</span><span class="mp f">G ${o.f}g</span><span class="mp k">${o.k} kcal</span></div>
-        ${o.recipe?`<button class="rec-btn" onclick="tr('mr${m.id}${i}')">📖 Ver receta y porciones</button>
-        <div class="rec-box" id="mr${m.id}${i}">
-          <h4>${o.recipe.title}</h4>
-          <div style="margin:8px 0 4px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);">Ingredientes</div>
-          <ul>${o.recipe.ingredients.map(x=>'<li>'+x+'</li>').join('')}</ul>
-          <div style="margin:10px 0 4px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);">Preparación</div>
-          <ol>${o.recipe.steps.map(x=>'<li>'+x+'</li>').join('')}</ol>
-          <div class="rec-portion">⚖ Porción: ${o.recipe.portion}</div>
-        </div>`:''}
+      <div style="border:1px solid var(--sand);border-radius:3px;padding:12px 14px;margin-bottom:8px;background:var(--warm);">
+        <div style="font-size:16px;font-weight:400;margin-bottom:3px;">${o.name}</div>
+        <div style="font-size:12px;color:var(--mid);font-weight:300;line-height:1.6;">${o.desc}</div>
+        <div class="mpills" style="margin-top:8px;"><span class="mp p">P ${o.p}g</span><span class="mp c">C ${o.c}g</span><span class="mp f">G ${o.f}g</span><span class="mp k">${o.k}kcal</span></div>
+        ${o.recipe?`<button class="rec-btn" onclick="document.getElementById('mr${m.id}${i}').classList.toggle('open')">📖 Ver receta y porciones</button>
+        <div class="rec-box" id="mr${m.id}${i}"><h4>${o.recipe.title}</h4>
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin:7px 0 4px;">Ingredientes</div><ul>${o.recipe.ingredients.map(x=>'<li>'+x+'</li>').join('')}</ul>
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin:9px 0 4px;">Preparación</div><ol>${o.recipe.steps.map(x=>'<li>'+x+'</li>').join('')}</ol>
+        <div class="rec-portion">⚖ ${o.recipe.portion}</div></div>`:''}
       </div>`).join('');
-    const div=document.createElement('div');
-    div.className='mlc';div.id='mc-'+m.id;
-    div.innerHTML=`<div class="mlc-hdr ${m.color}" onclick="toggleM('${m.id}')">
+    const div=document.createElement('div');div.className='mlc';div.id='mc-'+m.id;
+    div.innerHTML=`<div class="mlc-hdr ${m.color}" onclick="this.closest('.mlc').classList.toggle('open')">
       <div><div class="mlc-time">${m.time}</div><div class="mlc-name">${m.name}</div>
-      <div class="mpills" style="margin-top:4px;"><span class="mp p">P ~${avgP}g</span><span class="mp c">C ~${avgC}g</span><span class="mp f">G ~${avgF}g</span><span class="mp k">~${avgK} kcal</span></div></div>
-      <div class="mlc-right"><span class="chevron">⌄</span></div>
-    </div><div class="mlc-body">${opts}</div>`;
+      <div class="mpills" style="margin-top:4px;"><span class="mp p">~${avgP}g prot</span><span class="mp k">~${avgK}kcal</span></div></div>
+      <div class="mlc-right"><span class="chevron">⌄</span></div></div>
+    <div class="mlc-body">${opts}</div>`;
     list.appendChild(div);
   });
 }
-function toggleM(id){document.getElementById('mc-'+id).classList.toggle('open');}
-function tr(id){document.getElementById(id).classList.toggle('open');}
 
-// ── MOVE ──
-function buildMove(){
-  const list=document.getElementById('move-list');list.innerHTML='';
-  MOVE.forEach(m=>{
+function buildMovePage(){
+  const list=document.getElementById('move-list');if(!list)return;list.innerHTML='';
+  const mv=[
+    {day:'Lunes',name:'Pilates · Fuerza',col:'#B5614A',detail:'Core y tren inferior.'},
+    {day:'Martes',name:'Caminata · 10k pasos',col:'#8B9E6E',detail:'Tu cardio diario.'},
+    {day:'Miércoles',name:'Pilates · Fluido',col:'#B5614A',detail:'Cadenas posteriores.'},
+    {day:'Jueves',name:'Yoga / Stretching',col:'#C4A862',detail:'30–40 min de movilidad.'},
+    {day:'Viernes',name:'Pilates · Tonificación',col:'#B5614A',detail:'Clase completa.'},
+    {day:'Sábado',name:'Cardio suave + pasos',col:'#8B9E6E',detail:'Bici o caminata larga.'},
+    {day:'Domingo',name:'Descanso activo',col:'#9B9B9B',detail:'Caminar, estirar 15 min.'},
+  ];
+  mv.forEach(m=>{
     const d=document.createElement('div');
-    d.style.cssText=`display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--sand);padding:11px 16px;border-radius:3px;margin-bottom:7px;border-left:4px solid ${m.col}`;
-    d.innerHTML=`<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:78px;flex-shrink:0;">${m.day}</div><div><div style="font-size:16px;font-weight:300;">${m.name}</div><div style="font-size:12px;color:var(--mid);font-style:italic;font-weight:300;">${m.detail}</div></div>`;
+    d.style.cssText=`display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--sand);padding:10px 15px;border-radius:3px;margin-bottom:7px;border-left:4px solid ${m.col}`;
+    d.innerHTML=`<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:76px;flex-shrink:0;">${m.day}</div><div><div style="font-size:16px;font-weight:300;">${m.name}</div><div style="font-size:12px;color:var(--mid);font-style:italic;font-weight:300;">${m.detail}</div></div>`;
     list.appendChild(d);
   });
 }
 
-// ── CHAT ──
+// ══════════════════════════════════════════════════════
+// MÉTRICAS SEMANALES
+// ══════════════════════════════════════════════════════
+function renderWeekMetrics(){
+  const wn=parseInt(document.getElementById('weekSelect').value);
+  const start=(wn-1)*7+1, end=wn*7;
+  const T=WEEK_TARGETS[wn];
+  const container=document.getElementById('week-metrics-container');
+
+  let days=[], totalK=0,totalP=0,totalC=0,totalSteps=0,
+      exDays=0,stepsDay=0,kcalDays=0,
+      dulceDays=0,azucarDays=0,ansiedadDays=0,
+      inflamDays=0, sleepTotal=0, sleepDays=0,
+      highProtDays=0, goodKcalDays=0;
+
+  for(let i=start;i<=end;i++){
+    const d=appData[dk(i)];if(!d)continue;
+    days.push(i);
+    const {p,c,f,k}=calcDayMacros(d);
+    if(k>0){totalK+=k;totalP+=p;totalC+=c;kcalDays++;}
+    if(d.steps>0){totalSteps+=d.steps;stepsDay++;}
+    if(d.exercise?.types?.length>0)exDays++;
+    if(d.tracker?.dulce>=2)dulceDays++;
+    if(d.tracker?.azucar>=1)azucarDays++;
+    if(d.tracker?.ansiedad>=2)ansiedadDays++;
+    if(d.tracker?.inflamacion>=2)inflamDays++;
+    if(d.sleep?.hours){sleepTotal+=d.sleep.hours;sleepDays++;}
+    if(p>=T.p*0.9)highProtDays++;
+    if(k>0&&k<=T.k*1.05&&k>=T.k*0.85)goodKcalDays++;
+  }
+
+  const avgK=kcalDays>0?Math.round(totalK/kcalDays):null;
+  const avgP=kcalDays>0?Math.round(totalP/kcalDays):null;
+  const avgSteps=stepsDay>0?Math.round(totalSteps/stepsDay):null;
+  const avgSleep=sleepDays>0?(sleepTotal/sleepDays).toFixed(1):null;
+  const daysLogged=days.length;
+
+  // Build correlations
+  let insights=[];
+  if(daysLogged===0){insights.push('Todavía no hay datos de esta semana.');}
+  else{
+    if(avgK&&avgK>T.k+50)insights.push(`Promedio de calorías (${avgK}) por encima de la meta (${T.k}). Revisá las grasas — suelen ser el exceso silencioso.`);
+    else if(avgK&&avgK<T.k-100)insights.push(`Promedio de calorías (${avgK}) por debajo de la meta. Comer muy poco frena el metabolismo — subí un poco la proteína.`);
+    else if(avgK)insights.push(`Calorías promedio (${avgK}) dentro del rango. Bien.`);
+    if(avgP&&avgP<T.p*0.85)insights.push(`Proteína promedio (${avgP}g) baja. Días con poca proteína se correlacionan con más antojos de dulce.`);
+    if(dulceDays>=3)insights.push(`Tuviste antojos de dulce intensos ${dulceDays} días. Revisá si coincide con días de menos proteína o más ansiedad.`);
+    if(azucarDays>=2)insights.push(`Comiste fuera del plan ${azucarDays} días. Sin juicio — pero vale la pena ver qué lo disparó.`);
+    if(exDays<3)insights.push(`Solo ${exDays} días con movimiento. El ejercicio es el segundo pilar del plan — intentá sumar aunque sea una caminata.`);
+    if(inflamDays>=2)insights.push(`Inflamación frecuente (${inflamDays} días). Revisá si coincide con días que comiste sin gluten estricto, edulcorantes, o mucha fruta.`);
+    if(avgSleep&&parseFloat(avgSleep)<6.5)insights.push(`Sueño promedio de ${avgSleep}h — menos de 7h afecta directamente el cortisol y los antojos. Priorizar el sueño es parte del plan.`);
+    if(highProtDays>=5)insights.push(`💪 ${highProtDays} días con proteína en meta. Excelente — es lo que más protege el músculo mientras bajás grasa.`);
+  }
+
+  const statColor=(val,good,warn)=>val>=good?'good':val>=warn?'warn':'bad';
+
+  container.innerHTML=`
+    <div class="week-metrics">
+      <div class="wm-sub">Semana ${wn} · Días ${start}–${end}</div>
+      <div class="wm-title">Métricas y <em>patrones</em></div>
+      ${daysLogged>0?`
+      <div class="wm-grid" style="margin-top:16px;">
+        <div class="wm-stat ${avgK?statColor(Math.abs(avgK-T.k)<100?2:1,2,1):''}">
+          <div class="wm-val">${avgK||'—'}</div><div class="wm-lbl">Kcal promedio</div><div class="wm-note">Meta: ${T.k}</div>
+        </div>
+        <div class="wm-stat ${avgP?statColor(avgP>=T.p*0.9?2:avgP>=T.p*0.75?1:0,2,1):''}">
+          <div class="wm-val">${avgP?avgP+'g':'—'}</div><div class="wm-lbl">Proteína promedio</div><div class="wm-note">Meta: ${T.p}g</div>
+        </div>
+        <div class="wm-stat ${avgSteps?statColor(avgSteps>=10000?2:avgSteps>=7000?1:0,2,1):''}">
+          <div class="wm-val">${avgSteps?avgSteps.toLocaleString('es-AR'):'—'}</div><div class="wm-lbl">Pasos promedio</div><div class="wm-note">Meta: 10.000</div>
+        </div>
+        <div class="wm-stat ${statColor(exDays>=4?2:exDays>=2?1:0,2,1)}">
+          <div class="wm-val">${exDays}</div><div class="wm-lbl">Días con ejercicio</div><div class="wm-note">de ${daysLogged} registrados</div>
+        </div>
+        <div class="wm-stat ${avgSleep?statColor(parseFloat(avgSleep)>=7?2:parseFloat(avgSleep)>=6?1:0,2,1):''}">
+          <div class="wm-val">${avgSleep?avgSleep+'h':'—'}</div><div class="wm-lbl">Sueño promedio</div><div class="wm-note">Meta: 7–8h</div>
+        </div>
+        <div class="wm-stat ${statColor(goodKcalDays>=4?2:goodKcalDays>=2?1:0,2,1)}">
+          <div class="wm-val">${goodKcalDays}</div><div class="wm-lbl">Días en meta calórica</div><div class="wm-note">de ${daysLogged} registrados</div>
+        </div>
+        <div class="wm-stat ${statColor(dulceDays<=1?2:dulceDays<=3?1:0,2,1)}">
+          <div class="wm-val">${dulceDays}</div><div class="wm-lbl">Días con antojo intenso</div><div class="wm-note">azúcar / dulce</div>
+        </div>
+        <div class="wm-stat ${statColor(inflamDays===0?2:inflamDays<=2?1:0,2,1)}">
+          <div class="wm-val">${inflamDays}</div><div class="wm-lbl">Días con inflamación</div><div class="wm-note">moderada a intensa</div>
+        </div>
+      </div>
+      <div style="margin-top:20px;border-top:1px solid var(--sand);padding-top:16px;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);margin-bottom:12px;">Qué dice esta semana</div>
+        ${insights.map(i=>`<div style="font-size:14px;font-weight:300;color:var(--deep);line-height:1.7;padding:8px 0;border-bottom:1px dotted var(--sand);">${i}</div>`).join('')}
+      </div>`:'<div style="font-size:14px;color:var(--mid);font-style:italic;padding:12px 0;">Empezá a registrar los días de esta semana para ver los patrones.</div>'}
+    </div>`;
+}
+
+// ══════════════════════════════════════════════════════
+// CHAT
+// ══════════════════════════════════════════════════════
+const SYS=`Sos la asistente de nutrición y bienestar personal de Julieta, argentina, 37 años, instructora de Pilates.
+
+CONTEXTO:
+- Meta: bajar 7 kg de grasa en 4 semanas. Déficit calórico por semana: S1:1600kcal, S2:1500kcal, S3:1500kcal, S4:1700kcal.
+- Macros diarios: Proteína 110g, Carbos varía por semana, Grasas ~50g.
+- Sin gluten ni lácteos diarios. Masa madre y yogur griego ocasionales. Sin ajo/cebolla directos. Sin lentejas. Le gusta la leche de coco.
+- Cardio: 10.000 pasos diarios mínimo, 15.000 meta feliz. Pilates 3–4x/semana.
+- Zona crítica: ansiedad nocturna después de las 18h.
+- Suplementa con magnesio glicinato de noche y omega 3.
+- Metas: desinflamación y sin antojos de azúcar.
+
+ROL: amiga experta en nutrición. Honesta, cálida, sin juicio, directa. Español argentino conversacional. Máximo 3–4 párrafos.`;
+
 async function sendChat(){
-  const inp=document.getElementById('chatInp');
-  const msg=inp.value.trim();if(!msg)return;
-  inp.value='';
-  addMsg('user',msg);chatHist.push({role:'user',content:msg});
-  document.getElementById('chatSend').disabled=true;
-  document.getElementById('typingInd').style.display='block';scrollChat();
+  const inp=document.getElementById('chatInp');const msg=inp.value.trim();if(!msg)return;
+  inp.value='';addMsg('user',msg);chatHist.push({role:'user',content:msg});
+  document.getElementById('chatSend').disabled=true;document.getElementById('typingInd').style.display='block';scrollChat();
   try{
     const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:chatHist})});
     const data=await res.json();
     const reply=data.content?.[0]?.text||'No pude procesar la respuesta.';
     chatHist.push({role:'assistant',content:reply});
-    document.getElementById('typingInd').style.display='none';
-    addMsg('bot',reply);
-  }catch(e){document.getElementById('typingInd').style.display='none';addMsg('bot','Error de conexión. Revisá tu internet e intentá de nuevo.');}
+    document.getElementById('typingInd').style.display='none';addMsg('bot',reply);
+  }catch(e){document.getElementById('typingInd').style.display='none';addMsg('bot','Error de conexión. Intentá de nuevo.');}
   document.getElementById('chatSend').disabled=false;scrollChat();
 }
 function addMsg(role,text){
-  const c=document.getElementById('chatMsgs');
-  const d=document.createElement('div');d.className='msg '+role;
+  const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='msg '+role;
   const t=new Date().toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
   d.innerHTML=`<div class="msg-meta">${role==='user'?'Vos':'Claude'} · ${t}</div>${text.replace(/\n/g,'<br>')}`;
   c.appendChild(d);scrollChat();
 }
-function scrollChat(){const c=document.getElementById('chatMsgs');c.scrollTop=c.scrollHeight;}
+function scrollChat(){document.getElementById('chatMsgs').scrollTop=9999;}
 function sendSug(el){document.getElementById('chatInp').value=el.textContent;sendChat();}
 function ckd(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}}
 
-// ── DATOS ──
+// ══════════════════════════════════════════════════════
+// DATOS
+// ══════════════════════════════════════════════════════
 function renderDatos(){
-  let dwd=0,tm=0,ts=0,sd=0;
-  for(let i=1;i<=28;i++){const d=appData[dk(i)];if(!d)continue;const mc=Object.keys(d.meals||{}).length;if(mc>0)dwd++;tm+=mc;if(d.steps>0){ts+=d.steps;sd++;}}
+  let dwd=0,tm=0,ts=0,sd=0,tK=0,tP=0,kDays=0,exD=0;
+  for(let i=1;i<=28;i++){
+    const d=appData[dk(i)];if(!d)continue;
+    const mc=Object.keys(d.meals||{}).length;if(mc>0)dwd++;tm+=mc;
+    if(d.steps>0){ts+=d.steps;sd++;}
+    const {p,k}=calcDayMacros(d);
+    if(k>0){tK+=k;tP+=p;kDays++;}
+    if(d.exercise?.types?.length>0)exD++;
+  }
   document.getElementById('sd-days').textContent=dwd;
   document.getElementById('sd-meals').textContent=tm;
   document.getElementById('sd-steps').textContent=sd>0?Math.round(ts/sd).toLocaleString('es-AR'):'—';
-  const adh=dwd>0?Math.round(tm/(dwd*5)*100)+'%':'—';
-  document.getElementById('sd-adh').textContent=adh;
+  document.getElementById('sd-kcal').textContent=kDays>0?Math.round(tK/kDays):'—';
+  document.getElementById('sd-prot').textContent=kDays>0?Math.round(tP/kDays)+'g':'—';
+  document.getElementById('sd-ex').textContent=exD||'—';
+
   const wg=document.getElementById('w-grid');wg.innerHTML='';const dns=['D','L','M','M','J','V','S'];
-  for(let i=1;i<=28;i++){const d=appData[dk(i)];const mc=d?Object.keys(d.meals||{}).length:0;const dc=document.createElement('div');dc.className='dc'+(i===curDay?' today':'')+(mc>0?' hasd':'');dc.onclick=()=>{curDay=i;document.getElementById('daySelect').value=i;showPage('hoy');renderHoy();};dc.innerHTML=`<div class="dc-n">${i}</div><div class="dc-day">${dns[(i-1)%7]}</div><div class="dc-s">${mc>0?mc+'/5':''}${d&&d.steps>=10000?' 👣':''}</div>`;wg.appendChild(dc);}
+  for(let i=1;i<=28;i++){
+    const d=appData[dk(i)];const mc=d?Object.keys(d.meals||{}).length:0;
+    const dc=document.createElement('div');dc.className='dc'+(i===curDay?' today':'')+(mc>0?' hasd':'');
+    dc.onclick=()=>{curDay=i;document.getElementById('daySelect').value=i;showPage('hoy');renderHoy();};
+    dc.innerHTML=`<div class="dc-n">${i}</div><div class="dc-day">${dns[(i-1)%7]}</div><div class="dc-s">${mc>0?mc+'/5':''}${d?.steps>=10000?' 👣':''}</div>`;
+    wg.appendChild(dc);
+  }
+
   const ns=document.getElementById('notes-sum');ns.innerHTML='';let any=false;
   for(let i=1;i<=28;i++){
     const d=appData[dk(i)];
-    const vics=(d&&d.victories)||[];
-    const vicC=d&&d.vicCustom&&d.vicCustom.trim()?d.vicCustom:'';
-    const hasNote=d&&d.notes&&d.notes.trim();
-    const hasFeels=d&&Object.values(d.meals||{}).some(m=>m.feel);
-    if(hasNote||vics.length||vicC||hasFeels){
-      any=true;
-      const div=document.createElement('div');
-      div.style.cssText='background:var(--warm);border:1px solid var(--sand);padding:11px 15px;border-radius:3px;margin-bottom:7px;';
-      let inner=`<div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--mid);margin-bottom:6px;">DÍA ${i}${d&&d.steps?' · '+d.steps.toLocaleString('es-AR')+' pasos':''}</div>`;
-      if(hasFeels){
-        const feels=Object.entries(d.meals).filter(([,m])=>m.feel).map(([id,m])=>{const meal=MEALS.find(x=>x.id===id);return`<span style="font-size:11px;color:var(--mid);">${meal?meal.name:id}: ${m.feel}</span>`;});
-        inner+=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${feels.join('')}</div>`;
-      }
-      if(vics.length||vicC){
-        const allV=[...vics,...(vicC?[vicC]:[])];
-        inner+=`<div style="margin-bottom:5px;">${allV.map(v=>`<span style="font-family:'DM Mono',monospace;font-size:9px;background:#FFF8EB;color:var(--gold);padding:2px 7px;border-radius:20px;margin:2px;display:inline-block;">${v}</span>`).join('')}</div>`;
-      }
-      if(hasNote)inner+=`<div style="font-size:13px;font-weight:300;color:var(--deep);font-style:italic;">"${d.notes}"</div>`;
+    const vics=d?.victories||[];const vicC=d?.vicCustom?.trim()||'';
+    const hasNote=d?.notes?.trim();const hasEx=d?.exercise?.types?.length>0;
+    const hasTr=d?.tracker&&Object.values(d.tracker).some(v=>v>0);
+    const {k,p}=d?calcDayMacros(d):{k:0,p:0};
+    if(hasNote||vics.length||vicC||hasEx||hasTr||k>0){
+      any=true;const div=document.createElement('div');
+      div.style.cssText='background:var(--warm);border:1px solid var(--sand);padding:10px 14px;border-radius:3px;margin-bottom:6px;';
+      let inner=`<div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--mid);margin-bottom:5px;">DÍA ${i}${d?.steps?' · '+d.steps.toLocaleString('es-AR')+' 👣':''}${k>0?' · '+k+'kcal · P'+p+'g':''}${d?.sleep?.hours?' · 😴'+d.sleep.hours+'h':''}</div>`;
+      if(hasEx){const ex=d.exercise;inner+=`<div style="font-size:12px;font-weight:300;margin-bottom:4px;">${ex.types.join(' · ')}${ex.feel?' · '+ex.feel:''}</div>`;}
+      if(hasTr){const tls=TRACKERS.filter(t=>d.tracker[t.id]>0).map(t=>`${t.icon}${'·'.repeat(d.tracker[t.id])}`).join(' ');inner+=`<div style="font-size:11px;color:var(--mid);margin-bottom:4px;">${tls}</div>`;}
+      if(vics.length||vicC){const all=[...vics,...(vicC?[vicC]:[])];inner+=`<div style="margin-bottom:4px;">${all.map(v=>`<span style="font-family:'DM Mono',monospace;font-size:8px;background:#FFF8EB;color:var(--gold);padding:2px 6px;border-radius:20px;margin:2px;display:inline-block;">${v}</span>`).join('')}</div>`;}
+      if(hasNote)inner+=`<div style="font-size:12px;font-weight:300;color:var(--deep);font-style:italic;">"${d.notes}"</div>`;
       div.innerHTML=inner;ns.appendChild(div);
     }
   }
-  if(!any)ns.innerHTML='<div style="font-size:13px;color:var(--mid);font-style:italic;">Tus victorias, sensaciones y notas aparecerán acá.</div>';
+  if(!any)ns.innerHTML='<div style="font-size:13px;color:var(--mid);font-style:italic;">Tus datos del mes aparecerán acá día por día.</div>';
 }
-function exportData(){const b=new Blob([JSON.stringify(appData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='reset-julieta.json';a.click();}
 
-// ── NAV ──
+function exportData(){
+  const b=new Blob([JSON.stringify(appData,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='reset-julieta.json';a.click();
+}
+
+// ══════════════════════════════════════════════════════
+// NAV
+// ══════════════════════════════════════════════════════
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  const m={hoy:0,menu:1,chat:2,proto:3,sem:4,datos:5};
+  const m={hoy:0,menu:1,chat:2,semana:3,proto:4,datos:5};
   document.querySelectorAll('.nav-tab')[m[id]]?.classList.add('active');
   if(id==='datos')renderDatos();
+  if(id==='semana')renderWeekMetrics();
   if(id==='chat')setTimeout(scrollChat,50);
 }
 window.onload=init;
